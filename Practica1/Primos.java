@@ -45,13 +45,10 @@ public class Primos {
      * @param n
      */
     private void actualizaPrimos(int n){
-        for(int i=max; i<n;++i){
+        for(int i = max + 1; i <= n; i += 1){
             if (compruebaPrimo(i) == true) primos.add(i);
-            max = i;
         }
-
-        
-
+        max = n;
     }
 
     /**
@@ -61,13 +58,11 @@ public class Primos {
      * @return si n es primo
      */
     private boolean compruebaPrimo(int n){
+        boolean primo = true;
         for (int p:primos){
-            if(n%p==0) {
-                return true;
-            }
+            if(n%p == 0) primo = false;
         }
-
-        return false;
+        return primo;
     }
 
 
@@ -76,20 +71,23 @@ public class Primos {
      */
 
     public static void main(String[] args) {
+
         if (args.length<2) {
             System.out.println("Se espera al menos dos números como parámetros");
             System.out.println("Devuelve el conjunto ordenado");
         }
+
         else {
             Primos pr = new Primos();
 
             for (String s: args){
-                int k= Integer.parseInt(s);
-                pr.esPrimo(k);
-                System.out.println("hola");
-                System.out.println(pr);
+                int k = Integer.parseInt(s);
+                if (pr.esPrimo(k) == true) System.out.println("El número " + k + " es primo.");
+                else System.out.println("El número " + k + " no es primo.");
             }
-             // Imprimimos una línea con el conjunto ordenado, por salida estándar
+            // Imprimimos una línea con el conjunto ordenado, por salida estándar
+            System.out.println(pr);
+            
             // En java la destrucción de objetos es automática
         }
     }
