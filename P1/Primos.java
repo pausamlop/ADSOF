@@ -5,11 +5,7 @@
  * es primo, se imprimirán todos sus divisores primos.
  * Al final, se imprimirá una lista con todos los números primos encontrados 
  * hasta el máximo.
- *
- * @author Miguel Escribano <miguel.escribanoo@estudiante.uam.es>
- * @author Paula Samper <paula.samper@estudiante.uam.es>  
  */
-
 
 import java.util.SortedSet;
 import java.util.TreeSet;
@@ -18,6 +14,8 @@ import java.util.TreeSet;
  * Esta clase mantiene una caché de números primos, para
  * evitar cálculos repetidos, y calcula si un número es primo
  * La cache conserva los primos calculados
+ * @author Miguel Escribano miguel.escribanoo@estudiante.uam.es
+ * @author Paula Samper paula.samper@estudiante.uam.es
  */
 public class Primos{
     // usamos un conjunto ordenado, que implementa TreeSet
