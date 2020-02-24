@@ -12,6 +12,7 @@ public class Ejemplo2 {
   
   /**
    * Metodo main.
+   * @param args argumentos
    */
   public static void main(String args[]) {
     Articulo a3 = new Libro(940111, "Dibujo Técnico", 15, "LibroDeTexto");

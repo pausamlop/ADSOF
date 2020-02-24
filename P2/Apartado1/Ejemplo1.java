@@ -1,6 +1,18 @@
 import ads.p2.facturacion.*;
 
+
+/**
+ * Esta clase prueba las clases alimento y articulo implementadas.
+ *
+ * @author Miguel Escribano miguel.escribanoo@estudiante.uam.es
+ * @author Paula Samper paula.samper@estudiante.uam.es
+ */
 public class Ejemplo1 {
+
+	/**
+	 * Metodo main.
+	 * @param args argumentos
+	 */
   public static void main(String args[]) {
       	Articulo a1 = new Alimento(990034, "Chocolate a la taza", 2.5, true);
 	       System.out.println("Precio total: "

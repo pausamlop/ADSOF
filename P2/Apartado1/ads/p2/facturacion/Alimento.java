@@ -1,5 +1,13 @@
 package ads.p2.facturacion;
 
+
+/**
+ * Esta clase modela los alimentos como otra forma de articulo.
+ * 
+ * @author Miguel Escribano miguel.escribanoo@estudiante.uam.es
+ * @author Paula Samper paula.samper@estudiante.uam.es
+ */
+
 public class Alimento extends Articulo {
 	  private boolean promo3x2;
 	  public Alimento(long id, String desc, double precio, boolean promo) {
