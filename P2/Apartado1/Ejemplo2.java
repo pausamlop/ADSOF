@@ -1,6 +1,18 @@
 import ads.p2.facturacion.*;
 
+
+/**
+ * Esta clase prueba las clases libro y tabaco implementadas.
+ *
+ * @author Miguel Escribano miguel.escribanoo@estudiante.uam.es
+ * @author Paula Samper paula.samper@estudiante.uam.es
+ */
 public class Ejemplo2 {
+
+  
+  /**
+   * Metodo main.
+   */
   public static void main(String args[]) {
     Articulo a3 = new Libro(940111, "Dibujo Técnico", 15, "LibroDeTexto");
     Articulo a4 = new Libro(940607, "Grandes Clasicos", 10, "Coleccion");

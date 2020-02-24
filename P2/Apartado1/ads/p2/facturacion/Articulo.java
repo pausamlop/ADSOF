@@ -14,8 +14,13 @@ public abstract class Articulo {
 	  public void setDescripcion(String desc) { descripcion = desc; }
 	  public void setPrecioUnitario(double precio) { precioUnitario = precio; }
 
+
+	/**
+	 * Metodo toString adaptado para que devuelva la cadena de la manera
+	 * que hemos diseñado.
+	 */
 	  public String toString(){
-        return "Id: " + identificador + " " + descripcion + " Precio: " + precioUnitario;
+        return "Id:" + identificador + " " + descripcion + " Precio: " + precioUnitario;
       }
 
 		
