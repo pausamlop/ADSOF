@@ -1,5 +1,14 @@
 package ads.p2.facturacion;
 
+
+/**
+ * Esta clase modela los libros como otra forma de articulo.
+ * 
+ * @author Miguel Escribano miguel.escribanoo@estudiante.uam.es
+ * @author Paula Samper paula.samper@estudiante.uam.es
+ */
+
+
 public class Libro extends Articulo {
 	  private String categoria;
 	  public Libro(long id, String desc, double precio, String categ) {
