@@ -5,6 +5,5 @@ public class Tabaco extends Articulo {
 		super(id, desc, precio);
 	  }
 
-	  public double tipoIVA() { return 0.21; }
 	  public double descuento(double unidades) { return 0.0;}
 }
