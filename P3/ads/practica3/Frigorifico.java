@@ -32,6 +32,10 @@ public class Frigorifico extends ElectrodomesticoCocina {
     public void setNoFrost(boolean noFrost) {
         this.noFrost = noFrost;
     }
+
+    public double precioPorte() {
+        double volumen = 0.01 *getDim()
+    }
     
 
 }

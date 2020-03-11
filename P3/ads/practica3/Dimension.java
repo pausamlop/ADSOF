@@ -10,6 +10,7 @@ package ads.practica3;
 
 
 public class Dimension {
+    private double x;
     private double y;
     private double z;
 
@@ -43,6 +44,10 @@ public class Dimension {
 
     public void setZ(double z) {
         this.z = z;
+    }
+
+    public double getVolumen() {
+        return 0.01*x
     }
 
 

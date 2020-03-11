@@ -37,4 +37,13 @@ public class Lavadora extends ElectrodomesticoCocina {
         this.cargaMaxima = cargaMaxima;
     }
 
+    public double precioPorte() {
+        if(getPeso() <= 50.0) {
+            return 35.0;
+        }
+        else {
+            return 35.0 + (getPeso()-50.0)*0.5; //Preguntar esto
+        }
+    }
+
 }

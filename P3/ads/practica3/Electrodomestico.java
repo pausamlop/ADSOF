@@ -55,4 +55,6 @@ public abstract class Electrodomestico {
         this.clase = clase;
     }
 
+    public abstract double precioPorte();
+
 }

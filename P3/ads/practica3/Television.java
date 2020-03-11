@@ -17,4 +17,18 @@ public class Television extends Electrodomestico {
     public int getTamanoPantalla() { return this.tamanoPantalla; }
 
     public void setTamanoPantalla(int tamanoPantalla) { this.tamanoPantalla = tamanoPantalla; }
+
+    public double precioPorte() {
+        if (tamanoPantalla <= 40){
+            if(getPrecioBase() > 500) {
+                return 0.0;
+            }else {
+                return 35.0;
+            }
+        }
+        else {
+            return 35.0 + ((double)tamanoPantalla-40)
+        }
+    }
+
 }

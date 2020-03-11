@@ -36,16 +36,20 @@ public class Venta {
         this.nuevo = nuevo;
     }
 
-    public getTicket()
+    //public getTicket()
 
 
 
-    public double calcularPrecio(){
-
-    }
+    public double calcularPrecio(){ return nuevo.getPrecioBase() - calcularDescuento(); }
 
     public double calcularDescuento(){
+
+        if (viejo.getClase().equals(nuevo.getClase())) return 25.0;
+        if (viejo.getClase() > nuevo.getClase()) return 25.0 + 15.0*(viejo.getClase() - nuevo.getClase());
+        if (viejo.getClase() < nuevo.getClase()) return 25.0 - 5.0*(nuevo.getClase() - viejo.getClase());
+        if (viejo.getClase().equals("desconocida")) return 10.0;
         
+        return 0.0;
     }
 
 

@@ -9,10 +9,11 @@ package ads.practica3;
  */
 
 public class VentaDomicilio extends Venta {
+    
 
 
     @override
-    public double calcularPrecio(){
+    public double calcularPrecio(){ return nuevo.getPrecioBase() - calcularDescuento() + nuevo.precioPorte();
 
     }
 }
