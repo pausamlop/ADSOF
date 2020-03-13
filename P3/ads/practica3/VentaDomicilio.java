@@ -22,15 +22,16 @@ public class VentaDomicilio extends Venta {
     @Override
     public String getTicket() {
 
-        String pBase = String.format("%15.2f", getNuevo().getPrecioBase());
+        String pBase1 = String.format("%.2f", getNuevo().getPrecioBase());
+        String pBase2 = String.format("%15.2f", getNuevo().getPrecioBase());
         String desc = String.format("%13.2f", calcularDescuento());
         String pPorte = String.format("%19.2f", getNuevo().precioPorte()); 
         String precio = String.format("%25.2f", calcularPrecio()); 
 
         return "-------------------------------------------- \n" + 
-        "Producto vendido: " + getNuevo().getMarca() + " " + getNuevo().getModelo()+ ", " + getNuevo().getPrecioBase() + " Euros"+ 
+        "Producto vendido: " + getNuevo().getMarca() + " " + getNuevo().getModelo()+ ", " + pBase1 + " Euros"+ 
         "\n-------------------------------------------- \n" +
-        "Precio producto: " + pBase + " Euros\n" +
+        "Precio producto: " + pBase2 + " Euros\n" +
         "Descuento entrega: " + desc + " Euros\n" +
         "Coste porte: " + pPorte + " Euros\n" +
         "TOTAL: " + precio + " Euros\n";
