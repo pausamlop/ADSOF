@@ -56,4 +56,17 @@ public abstract class Electrodomestico {
 
     public abstract double precioPorte();
 
+    @Override
+    public String toString(){
+        String pBase = String.format("%.2f", precioBase);
+        return marca + " " + modelo + ", " + pBase + " Euros";
+      }
+
+    
+    @Override
+    public boolean equals(Object obj){
+       if (this.getMarca().equals(((Electrodomestico)obj).getMarca()) && this.getModelo().equals(((Electrodomestico)obj).getModelo())
+        && this.getClass() == obj.getClass()) return true;
+        return false;
+    }
 }

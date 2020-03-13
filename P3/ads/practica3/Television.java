@@ -33,4 +33,12 @@ public class Television extends Electrodomestico {
         }
     }
 
+    // @Override
+    // public boolean equals(Object obj){
+    //     if (this.getMarca().equals(((Electrodomestico)obj).getMarca()) && this.getModelo().equals(((Electrodomestico)obj).getModelo())
+    //     && obj instanceof Television) return true;
+        
+    //     return false;
+    // }
+
 }

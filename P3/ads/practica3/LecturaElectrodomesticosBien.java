@@ -11,6 +11,7 @@ import java.io.FileReader;
  * @author Paula Samper paula.samper@estudiante.uam.es
  */
 
+
 public class LecturaElectrodomesticos {
 
     public static ArrayList<Electrodomestico> leer (String file){
@@ -19,26 +20,13 @@ public class LecturaElectrodomesticos {
 
         try{
             BufferedReader f = new BufferedReader(new FileReader(file));
-
             while ((buf = f.readLine()) != null) {
-                int flag = 1;
                 String[] args = buf.split("=");
-                Electrodomestico e;
-
-                if (args.length == 5 ) e = crearTelevision(args);
-                else if (args.length == 9 ) e = crearFrigorifico(args);
-                else e =  crearLavadora(args);
-
-                for (Electrodomestico u: lista) if (u.equals(e)) flag = 0;
-
-                if (flag == 1) lista.add(e);
-                else {
-                    System.out.println("Duplicado no añadido:");
-                    System.out.println(e);
-                } 
+                if (args.length == 5 ) lista.add(crearTelevision(args));
+                if (args.length == 9 ) lista.add(crearFrigorifico(args));
+                if (args.length == 8 || args.length == 10) lista.add(crearLavadora(args));
             }
             f.close();
-
         } catch(Exception e){
             System.err.println("Archivo no encontrado");
         }

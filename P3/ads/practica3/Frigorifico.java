@@ -35,5 +35,12 @@ public class Frigorifico extends ElectrodomesticoCocina {
         return importe - (double)parteEntera;
     }
     
+    // @Override
+    // public boolean equals(Object obj){
+    //     if (this.getMarca().equals(((Electrodomestico)obj).getMarca()) && this.getModelo().equals(((Electrodomestico)obj).getModelo())
+    //     && obj instanceof Frigorifico) return true;
+        
+    //     return false;
+    // }
 
 }

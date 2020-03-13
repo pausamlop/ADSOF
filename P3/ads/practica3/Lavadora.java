@@ -50,4 +50,15 @@ public class Lavadora extends ElectrodomesticoCocina {
         }
     }
 
+
+    // @Override
+    // public boolean equals(Object obj){
+    //     if (this.getMarca() == ((Electrodomestico)obj).getMarca() && this.getModelo() == ((Electrodomestico)obj).getModelo()
+    //     && obj instanceof Lavadora) return true;
+        
+    //     return false;
+    // }
+
+
 }
+

@@ -1,4 +1,5 @@
 package ads.practica3;
+import java.util.ArrayList;
 
 
 /**
@@ -12,14 +13,19 @@ public class Venta {
 
     private Electrodomestico viejo;
     private Electrodomestico nuevo;
+    private static ArrayList<Venta> ventas = new ArrayList<Venta>();
 
 
     public Venta(Electrodomestico nuevo, Electrodomestico viejo) {
         this.viejo = viejo;
         this.nuevo = nuevo;
+        ventas.add(this); 
     }
 
-    public Venta(Electrodomestico nuevo) { this.nuevo = nuevo; }
+    public Venta(Electrodomestico nuevo) { 
+        this.nuevo = nuevo; 
+        ventas.add(this);
+    }
 
 
     public Electrodomestico getViejo() {
@@ -38,6 +44,14 @@ public class Venta {
         this.nuevo = nuevo;
     }
 
+    public static ArrayList<Venta> getVentas() {
+        return ventas;
+    }
+
+    public static void setVentas(ArrayList<Venta> venta) {
+        Venta.ventas = venta;
+    }
+
 
     public double calcularPrecio(){ return nuevo.getPrecioBase() - calcularDescuento(); }
 
@@ -52,19 +66,73 @@ public class Venta {
     }
 
 
-    public String getTicket() {
- 
-        String pBase1 = String.format("%.2f", nuevo.getPrecioBase());
-        String pBase2 = String.format("%15.2f", nuevo.getPrecioBase());
-        String desc = String.format("%13.2f", calcularDescuento());
-        String precio = String.format("%25.2f", calcularPrecio()); 
+    /*********** GET TICKET *********/
 
+    public String getTicketProducto(){
+        String buf = String.format("%.2f", nuevo.getPrecioBase());
         return "-------------------------------------------- \n" + 
-        "Producto vendido: " +  nuevo.getMarca() + " " + nuevo.getModelo() + ", " + pBase1 + " Euros\n" +
-        "-------------------------------------------- \n" + 
-        "Precio producto: " + pBase2 + " Euros\n" +
-        "Descuento entrega: " + desc + " Euros\n" +
-        "TOTAL: " + precio + " Euros\n"; 
+        "Producto vendido: " +  nuevo.getMarca() + " " + 
+        nuevo.getModelo() + ", " + buf + " Euros\n" +
+        "-------------------------------------------- \n";
+    }
+    
+    public String getTicketPrecioBase() {
+        String buf = String.format("%15.2f", nuevo.getPrecioBase());
+        return "Precio producto: " + buf + " Euros\n";
+        
+    }
+
+    public String getTicketDescuento(){
+        String buf = String.format("%13.2f", calcularDescuento());
+        return "Descuento entrega: " + buf + " Euros\n";
+    }
+
+    public String getTicketTotal() {
+        String buf = String.format("%25.2f", calcularPrecio()); 
+        return "TOTAL: " + buf + " Euros\n"; 
+    }
+
+    public String getTicket() {
+        return getTicketProducto() + getTicketPrecioBase() + getTicketDescuento() + getTicketTotal() + "\n"; 
+    }
+
+
+    /**************************************/
+    public static String resumenVentas(){
+        String buf = "RESUMEN DE VENTAS\n";
+        for (Venta v: Venta.ventas) buf = buf + v.getTicketTotal();
+        return buf;
+    }
+
+    
+    public static String resumenVentas(double par){
+        String buf = "RESUMEN DE VENTAS\n";
+        for (Venta v: Venta.ventas) {
+            if (v.calcularPrecio() >= par) buf += v.getTicketTotal();
+        }
+        return buf;
+    }
+
+    public static String resumenVentas(String str){
+        String buf = "RESUMEN DE VENTAS\n";
+        for (Venta v: Venta.ventas){
+            if (v.getNuevo().getMarca().contains(str)) buf += v.getTicketTotal();
+        } 
+        return buf;
+    }
+
+
+    public static Venta ultima(){
+        if (ventas.isEmpty()) return null;
+        return Venta.ventas.get(Venta.ventas.size() - 1);
+    }
+    
+    public static Venta anular(){
+        if (ventas.isEmpty()) return null;
+        Venta v;
+        v = ultima();
+        Venta.ventas.remove(Venta.ventas.size() - 1);
+        return v;
     }
 
 }

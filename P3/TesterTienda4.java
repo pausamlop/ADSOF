@@ -1,7 +1,7 @@
 import ads.practica3.*;
 
 /**
- * Tester el apartado 4 de la pr�ctica 3
+ * Tester el apartado 4 de la practica 3
  * @author Profesores ADS
  */
 public class TesterTienda4 {	
@@ -10,6 +10,7 @@ public class TesterTienda4 {
 		TesterTienda1.main(null);  
 		
 		System.out.println( Venta.resumenVentas() );
+
 		System.out.println( Venta.ultima().getTicket());
 		
 		Venta anulada = Venta.anular();  // anulamos la �ltima venta    
