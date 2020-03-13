@@ -12,7 +12,9 @@ package ads.practica3;
 public class Television extends Electrodomestico {
     private int tamanoPantalla;
 
-    public Television(int tamanoPantalla) { this.tamanoPantalla = tamanoPantalla; }
+    public Television(String marca, String modelo, double precio, ClaseEnergetica clase, int tamanoPantalla) { 
+        super(marca, modelo, precio, clase);
+        this.tamanoPantalla = tamanoPantalla; }
 
     public int getTamanoPantalla() { return this.tamanoPantalla; }
 
@@ -20,14 +22,14 @@ public class Television extends Electrodomestico {
 
     public double precioPorte() {
         if (tamanoPantalla <= 40){
-            if(getPrecioBase() > 500) {
-                return 0.0;
+            if(getPrecioBase() > 500.00) {
+                return 0.00;
             }else {
-                return 35.0;
+                return 35.00;
             }
         }
         else {
-            return 35.0 + ((double)tamanoPantalla-40)
+            return 35.00 + ((double)tamanoPantalla-40.00);
         }
     }
 

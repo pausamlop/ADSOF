@@ -1,6 +1,5 @@
 package ads.practica3;
 
-
 /**
  * Esta clase modela los elementos Electrodoméstico.
  * 

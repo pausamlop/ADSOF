@@ -47,7 +47,7 @@ public class Dimension {
     }
 
     public double getVolumen() {
-        return 0.01*x
+        return 0.01*x*0.01*y*0.01*z;
     }
 
 

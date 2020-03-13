@@ -12,7 +12,8 @@ public abstract class ElectrodomesticoCocina extends Electrodomestico{
     private Dimension dim;
 
 
-    public ElectrodomesticoCocina(double peso, Dimension dim) {
+    public ElectrodomesticoCocina(String marca, String modelo, double precio, ClaseEnergetica clase, double peso, Dimension dim) {
+        super(marca, modelo, precio, clase);
         this.peso = peso;
         this.dim = dim;
     }

@@ -11,13 +11,8 @@ public class Frigorifico extends ElectrodomesticoCocina {
     private boolean noFrost;
 
 
-
-    public Frigorifico(boolean noFrost) {
-        this.noFrost = noFrost;
-    }
-
-
-    public Frigorifico(boolean noFrost) {
+    public Frigorifico(String marca, String modelo, double precio, ClaseEnergetica clase, Dimension dim, double peso, boolean noFrost) {
+        super(marca, modelo, precio, clase, peso, dim);
         this.noFrost = noFrost;
     }
 
@@ -34,7 +29,10 @@ public class Frigorifico extends ElectrodomesticoCocina {
     }
 
     public double precioPorte() {
-        double volumen = 0.01 *getDim()
+        long parteEntera;
+        double importe=this.getDim().getVolumen() *70;  
+        parteEntera = (long)importe;
+        return importe - (double)parteEntera;
     }
     
 

@@ -1,7 +1,7 @@
-package ads.practica3;
+import ads.practica3.*;
 
 /**
- * Tester del apartado 1 de la práctica 3
+ * Tester del apartado 1 de la practica 3
  * @author Profesores ADS
  */
 public class TesterTienda1 {
@@ -25,7 +25,7 @@ public class TesterTienda1 {
 	    ventas[4] = new Venta(tele2, 
 	                       new Television("Telefunken", "", 0.0, ClaseEnergetica.D, 32));
 	    ventas[5] = new VentaDomicilio(lava1, tele2);
-	    for (Venta v : ventas) 
+		for (Venta v : ventas) 
 	    	System.out.print(v.getTicket());		
 	  }
 	}

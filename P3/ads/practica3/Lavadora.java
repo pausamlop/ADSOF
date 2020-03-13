@@ -15,10 +15,14 @@ public class Lavadora extends ElectrodomesticoCocina {
     private double cargaMaxima;
 
 
-    public Lavadora(int revMinuto, double cargaMaxima) {
+    public Lavadora(String marca, String modelo, double precio, ClaseEnergetica clase, Dimension dim, double peso, double cargaMaxima, int revMinuto) {
+        super(marca, modelo, precio, clase, peso, dim);
         this.revMinuto = revMinuto;
         this.cargaMaxima = cargaMaxima;
     }
+
+    public Lavadora(String marca, String modelo, double precio, ClaseEnergetica clase, Dimension dim, double peso) { super(marca, modelo, precio, clase, peso, dim);}
+
 
 
     public int getRevMinuto() {
@@ -38,11 +42,11 @@ public class Lavadora extends ElectrodomesticoCocina {
     }
 
     public double precioPorte() {
-        if(getPeso() <= 50.0) {
-            return 35.0;
+        if(getPeso() <= 50.00) {
+            return 35.00;
         }
         else {
-            return 35.0 + (getPeso()-50.0)*0.5; //Preguntar esto
+            return 35.00 + (getPeso()-50.00)*0.50; //Preguntar esto
         }
     }
 

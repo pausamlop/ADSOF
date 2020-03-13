@@ -14,10 +14,12 @@ public class Venta {
     private Electrodomestico nuevo;
 
 
-    public Venta(Electrodomestico viejo, Electrodomestico nuevo) {
+    public Venta(Electrodomestico nuevo, Electrodomestico viejo) {
         this.viejo = viejo;
         this.nuevo = nuevo;
     }
+
+    public Venta(Electrodomestico nuevo) { this.nuevo = nuevo; }
 
 
     public Electrodomestico getViejo() {
@@ -36,21 +38,27 @@ public class Venta {
         this.nuevo = nuevo;
     }
 
-    //public getTicket()
-
-
 
     public double calcularPrecio(){ return nuevo.getPrecioBase() - calcularDescuento(); }
 
     public double calcularDescuento(){
 
-        if (viejo.getClase().equals(nuevo.getClase())) return 25.0;
-        if (viejo.getClase() > nuevo.getClase()) return 25.0 + 15.0*(viejo.getClase() - nuevo.getClase());
-        if (viejo.getClase() < nuevo.getClase()) return 25.0 - 5.0*(nuevo.getClase() - viejo.getClase());
-        if (viejo.getClase().equals("desconocida")) return 10.0;
-        
-        return 0.0;
+        if (viejo == null) return 0.00;
+
+        if (viejo.getClase().equals(ClaseEnergetica.Desconocida)) return 10.00;
+        if (viejo.getClase().ordinal() == nuevo.getClase().ordinal()){ return 25.00; }
+        if (viejo.getClase().ordinal() > nuevo.getClase().ordinal()) return 25.00 + 15.00*(viejo.getClase().ordinal() - nuevo.getClase().ordinal());
+        return 25.00 - 5.00*(nuevo.getClase().ordinal() - viejo.getClase().ordinal());
     }
 
+
+    public String getTicket() {
+        return "-------------------------------------------- \n" + 
+        "Producto vendido: " +  nuevo.getMarca() + " " + nuevo.getModelo() + ", " + nuevo.getPrecioBase() + " Euros\n" +
+        "-------------------------------------------- \n" + 
+        "Precio producto: " + "        " + nuevo.getPrecioBase() + " Euros\n" +
+        "Descuento entrega: " + "        "+ calcularDescuento() + " Euros\n" +
+        "TOTAL: " + "                  " +calcularPrecio() + " Euros\n"; 
+    }
 
 }

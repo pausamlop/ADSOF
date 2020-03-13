@@ -9,11 +9,23 @@ package ads.practica3;
  */
 
 public class VentaDomicilio extends Venta {
-    
 
+    public VentaDomicilio(Electrodomestico viejo, Electrodomestico nuevo) { super(viejo,nuevo); }
 
-    @override
-    public double calcularPrecio(){ return nuevo.getPrecioBase() - calcularDescuento() + nuevo.precioPorte();
+    public VentaDomicilio(Electrodomestico nuevo) { super(nuevo); }
 
+    @Override
+    public double calcularPrecio(){ return getNuevo().getPrecioBase() - calcularDescuento() + getNuevo().precioPorte();
+
+    }
+    @Override
+    public String getTicket() {
+        return "-------------------------------------------- \n" + 
+        "Producto vendido: " + getNuevo().getMarca() + " " + getNuevo().getModelo()+ ", " + getNuevo().getPrecioBase() + " Euros"+ 
+        "\n-------------------------------------------- \n" +
+        "Precio producto: " + getNuevo().getPrecioBase() + " Euros\n" +
+        "Descuento entrega: " + calcularDescuento() + " Euros\n" +
+        "Coste porte: " + getNuevo().precioPorte() + " Euros\n" +
+        "TOTAL: " + calcularPrecio() + " Euros\n";
     }
 }

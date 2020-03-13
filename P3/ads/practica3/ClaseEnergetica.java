@@ -11,5 +11,5 @@ package ads.practica3;
 
 
 public enum ClaseEnergetica {
-    A, B, C, D, desconocida;
+    A, B, C, D, Desconocida;
 }
