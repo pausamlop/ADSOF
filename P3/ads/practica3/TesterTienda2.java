@@ -1,5 +1,4 @@
-import ads.practica3.*;
-
+package ads.practica3;
 import java.util.List;
 
 /**

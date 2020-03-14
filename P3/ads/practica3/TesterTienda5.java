@@ -1,4 +1,4 @@
-import ads.practica3.*;
+package ads.practica3;
 
 /**
  * Tester del apartado 5 de la practica 3

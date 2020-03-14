@@ -32,13 +32,5 @@ public class VentaCanarias extends VentaDomicilio {
         String buf = String.format("%19.2f", getNuevo().getPrecioBase()*0.07);
         return "Coste porte: " + buf + " Euros\n";
     }
-     /**
-     * Modificación de getTicket() que cuenta con los portes del envío a domicilio a Canarias
-	 * 
-	 * @return el ticket requerido
-     */
-    @Override
-    public String getTicket() {
-        return getTicketProducto() + getTicketPrecioBase() + getTicketDescuento() + getTicketPorte()+ getTicketTotal() + "\n";        
-    }
+
 }

@@ -200,8 +200,7 @@ public class Venta {
      */
     public static Venta anular(){
         if (ventas.isEmpty()) return null;
-        Venta v;
-        v = ultima();
+        Venta v = ultima();
         Venta.ventas.remove(Venta.ventas.size() - 1);
         return v;
     }
