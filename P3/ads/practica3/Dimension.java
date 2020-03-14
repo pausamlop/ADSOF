@@ -14,7 +14,13 @@ public class Dimension {
     private double y;
     private double z;
 
-
+    /**
+     * Método constructor de la clase Dimension
+	 * 
+     * @param x medida eje x en centímetros
+     * @param y medida eje y en centímetros	 
+     * @param z medida eje z en centímetros
+     */
     public Dimension(double x, double y, double z) {
         this.x = x;
         this.y = y;
@@ -46,6 +52,11 @@ public class Dimension {
         this.z = z;
     }
 
+    /**
+     * Método que devuelve el volumen asociado a la clase Dimension, en metros cúbicos
+	 * 
+	 * @return el volumen en metros cúbicos
+     */
     public double getVolumen() {
         return 0.01*x*0.01*y*0.01*z;
     }

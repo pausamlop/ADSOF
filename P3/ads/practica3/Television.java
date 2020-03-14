@@ -11,7 +11,15 @@ package ads.practica3;
 
 public class Television extends Electrodomestico {
     private int tamanoPantalla;
-
+    /**
+     * Método constructor de la clase Television
+	 * 
+     * @param marca String de la marca
+     * @param modelo String del modelo
+     * @param precioBase double del precio base del electrodoméstico
+     * @param clase clase energética del electrodoméstico
+     * @param tamanoPantalla entero con las pulgadas de la pantalla
+     */
     public Television(String marca, String modelo, double precio, ClaseEnergetica clase, int tamanoPantalla) { 
         super(marca, modelo, precio, clase);
         this.tamanoPantalla = tamanoPantalla; }
@@ -20,6 +28,13 @@ public class Television extends Electrodomestico {
 
     public void setTamanoPantalla(int tamanoPantalla) { this.tamanoPantalla = tamanoPantalla; }
 
+
+    /**
+     * Método que calcula el precio del porte de una televisión en una venta a domicilio
+     * según su tamaño de pantalla
+	 * 
+	 * @return el precio del porte
+     */
     public double precioPorte() {
         if (tamanoPantalla <= 40){
             if(getPrecioBase() > 500.00) {
@@ -33,12 +48,5 @@ public class Television extends Electrodomestico {
         }
     }
 
-    // @Override
-    // public boolean equals(Object obj){
-    //     if (this.getMarca().equals(((Electrodomestico)obj).getMarca()) && this.getModelo().equals(((Electrodomestico)obj).getModelo())
-    //     && obj instanceof Television) return true;
-        
-    //     return false;
-    // }
-
+ 
 }

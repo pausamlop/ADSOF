@@ -14,7 +14,14 @@ public abstract class Electrodomestico {
     private double precioBase;
     private ClaseEnergetica clase;
 
-
+    /**
+     * Método constructor de la clase abstracta Electrodomestico
+	 * 
+     * @param marca String de la marca
+     * @param modelo String del modelo
+     * @param precioBase double del precio base del electrodoméstico
+     * @param clase clase energética del electrodoméstico
+     */
     public Electrodomestico(String marca, String modelo, double precioBase, ClaseEnergetica clase) {
         this.marca = marca;
         this.modelo = modelo;
@@ -53,16 +60,32 @@ public abstract class Electrodomestico {
     public void setClase(ClaseEnergetica clase) {
         this.clase = clase;
     }
-
+    /**
+     * Método que calcula el precio del porte de un electrodoméstico en una venta a domicilio
+	 * 
+	 * @return el precio del porte
+     */
     public abstract double precioPorte();
 
+
+    /**
+     * Modificación del método toString para imprimir un electrodoméstico de la forma deseada
+	 * 
+	 * @return String del toString modificado
+     */
     @Override
     public String toString(){
         String pBase = String.format("%.2f", precioBase);
         return marca + " " + modelo + ", " + pBase + " Euros";
       }
 
-    
+    /**
+     * Modificación del método equals para comparar si dos electrodomésticos son iguales, 
+     * atendiendo a las condiciones requeridas
+	 * 
+     * @param obj objeto a comparar
+	 * @return boolean: true si son iguales, false en caso contario
+     */
     @Override
     public boolean equals(Object obj){
        if (this.getMarca().equals(((Electrodomestico)obj).getMarca()) && this.getModelo().equals(((Electrodomestico)obj).getModelo())
