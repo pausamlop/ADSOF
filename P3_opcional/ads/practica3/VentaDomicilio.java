@@ -46,7 +46,7 @@ public class VentaDomicilio extends Venta {
 	 * @return String requerido
      */
 
-    protected String getTicketPorte(){
+    public String getTicketPorte(){
         String buf = String.format("%19.2f", getNuevo().precioPorte());
         return "Coste porte: " + buf + " Euros\n";
     }

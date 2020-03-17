@@ -90,7 +90,7 @@ public class Venta {
 	 * 
 	 * @return String requerido
      */
-    protected String getTicketProducto(){
+    public String getTicketProducto(){
         String buf = String.format("%.2f", nuevo.getPrecioBase());
         return "-------------------------------------------- \n" + 
         "Producto vendido: " +  nuevo.getMarca() + " " + 
@@ -104,7 +104,7 @@ public class Venta {
 	 * 
 	 * @return String requerido
      */
-    protected String getTicketPrecioBase() {
+    public String getTicketPrecioBase() {
         String buf = String.format("%15.2f", nuevo.getPrecioBase());
         return "Precio producto: " + buf + " Euros\n";
         
@@ -115,7 +115,7 @@ public class Venta {
      * 
 	 * @return String requerido
      */
-    protected String getTicketDescuento(){
+    public String getTicketDescuento(){
         String buf = String.format("%13.2f", calcularDescuento());
         return "Descuento entrega: " + buf + " Euros\n";
     }
@@ -125,7 +125,7 @@ public class Venta {
      * 
 	 * @return String requerido
      */
-    protected String getTicketTotal() {
+    public String getTicketTotal() {
         String buf = String.format("%25.2f", calcularPrecio()); 
         return "TOTAL: " + buf + " Euros\n"; 
     }
@@ -201,6 +201,7 @@ public class Venta {
     public static Venta anular(){
         if (ventas.isEmpty()) return null;
         Venta v = ultima();
+        //actualizarExistencias()
         Venta.ventas.remove(Venta.ventas.size() - 1);
         return v;
     }
