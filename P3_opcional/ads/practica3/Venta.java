@@ -24,7 +24,8 @@ public class Venta {
     public Venta(Electrodomestico nuevo, Electrodomestico viejo) {
         this.viejo = viejo;
         this.nuevo = nuevo;
-        ventas.add(this); 
+        ventas.add(this);
+        Almacen.actualizaExistencias(nuevo, Almacen.numeroExistencias(nuevo)-1); 
     }
     /**
      * Método constructor de la clase venta sin entrega de electrodoméstico por parte del cliente
@@ -201,7 +202,8 @@ public class Venta {
     public static Venta anular(){
         if (ventas.isEmpty()) return null;
         Venta v = ultima();
-        //actualizarExistencias()
+        Electrodomestico e = Venta.ventas.get(Venta.ventas.size() -1).getNuevo();
+        Almacen.actualizaExistencias(e, Almacen.numeroExistencias(e)+1);
         Venta.ventas.remove(Venta.ventas.size() - 1);
         return v;
     }

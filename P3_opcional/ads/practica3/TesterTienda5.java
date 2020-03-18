@@ -12,7 +12,8 @@ public class TesterTienda5 {
 					televisión curva para comprobar la nueva clase, que cuenta, adicionalmente
 					con dimensión y peso */
                     
-        Electrodomestico tele2 = new Television("Loewe", "Art 48 4K Plata", 1699.00,
+		
+					Electrodomestico tele2 = new Television("Loewe", "Art 48 4K Plata", 1699.00,
 					ClaseEnergetica.A, 48); /*Creamos una televisión no curva con idénticas 
 					características que la anterior */
 
