@@ -35,6 +35,7 @@ public class Venta {
     public Venta(Electrodomestico nuevo) { 
         this.nuevo = nuevo; 
         ventas.add(this);
+        Almacen.actualizaExistencias(nuevo, Almacen.numeroExistencias(nuevo)-1); 
     }
 
 
@@ -91,7 +92,7 @@ public class Venta {
 	 * 
 	 * @return String requerido
      */
-    public String getTicketProducto(){
+    protected String getTicketProducto(){
         String buf = String.format("%.2f", nuevo.getPrecioBase());
         return "-------------------------------------------- \n" + 
         "Producto vendido: " +  nuevo.getMarca() + " " + 
@@ -105,7 +106,7 @@ public class Venta {
 	 * 
 	 * @return String requerido
      */
-    public String getTicketPrecioBase() {
+    protected String getTicketPrecioBase() {
         String buf = String.format("%15.2f", nuevo.getPrecioBase());
         return "Precio producto: " + buf + " Euros\n";
         
@@ -116,7 +117,7 @@ public class Venta {
      * 
 	 * @return String requerido
      */
-    public String getTicketDescuento(){
+    protected String getTicketDescuento(){
         String buf = String.format("%13.2f", calcularDescuento());
         return "Descuento entrega: " + buf + " Euros\n";
     }
@@ -126,7 +127,7 @@ public class Venta {
      * 
 	 * @return String requerido
      */
-    public String getTicketTotal() {
+    protected String getTicketTotal() {
         String buf = String.format("%25.2f", calcularPrecio()); 
         return "TOTAL: " + buf + " Euros\n"; 
     }

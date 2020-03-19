@@ -28,7 +28,7 @@ public class VentaCanarias extends VentaDomicilio {
 	 * @return String requerido
      */
      @Override
-     public String getTicketPorte(){
+     protected String getTicketPorte(){
         String buf = String.format("%19.2f", getNuevo().getPrecioBase()*0.07);
         return "Coste porte: " + buf + " Euros\n";
     }

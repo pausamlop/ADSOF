@@ -34,6 +34,7 @@ public class Frigorifico extends ElectrodomesticoCocina {
     public void setNoFrost(boolean noFrost) {
         this.noFrost = noFrost;
     }
+    
     /**
      * Método redefinido que calcula el precio del porte de un frigorífico en una venta a domicilio
      * según sus dimensiones
