@@ -1,4 +1,17 @@
 package ads.units;
 public enum Quantity {
-    LENGTH, TIME;
+        LENGTH{
+
+        @Override
+        public String toString() {
+            return "L";
+
+        }
+    },
+        TIME {
+            @Override
+            public String toString() {
+                return "T";
+            }
+    };
 }
