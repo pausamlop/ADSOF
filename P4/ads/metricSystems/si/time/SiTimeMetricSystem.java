@@ -1,3 +1,5 @@
-public enum SiTimeMetricSystem {
-    HOUR, SECOND; MILISECOND;
+package ads.metricSystems.si.time;
+
+public class SiTimeMetricSystem {
+    
 }

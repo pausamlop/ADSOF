@@ -1,9 +1,9 @@
 package test;
 
-import units.IPhysicalUnit;
-import magnitude.exceptions.QuantityException;
-import metricSystems.si.length.SiLengthMetricSystem;
-import metricSystems.si.time.SiTimeMetricSystem;
+import ads.units.IPhysicalUnit;
+import ads.magnitude.exceptions.QuantityException;
+import ads.metricSystems.si.length.SiLengthMetricSystem;
+import ads.metricSystems.si.time.SiTimeMetricSystem;
 
 public class PhysicalUnitTest {
 	public static void main(String[] args) throws QuantityException {
