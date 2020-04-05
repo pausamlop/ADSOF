@@ -1,14 +1,16 @@
 package test;
 
-import ads.units.IPhysicalUnit;
-import ads.magnitude.exceptions.QuantityException;
-import ads.metricSystems.si.length.SiLengthMetricSystem;
-import ads.metricSystems.si.time.SiTimeMetricSystem;
+import units.*;
+
+import magnitude.exceptions.QuantityException;
+import metricSystems.si.length.SiLengthMetricSystem;
+import metricSystems.si.time.SiTimeMetricSystem;
+
 
 public class PhysicalUnitTest {
 	public static void main(String[] args) throws QuantityException {
 		IPhysicalUnit meter = SiLengthMetricSystem.METER;
-		System.out.println(meter);   				// This is how a meter is printed (abrev + Quantity)
+		System.out.println(meter);   				// This is how a meter is printed (abbrev + Quantity)
 		System.out.println(meter.canTransformTo(SiLengthMetricSystem.KILOMETER));   // Yes, we can
 		System.out.println(meter.canTransformTo(SiTimeMetricSystem.SECOND));  		// No, we don't
 		System.out.println("1000 m en km: "+meter.transformTo(1000, SiLengthMetricSystem.KILOMETER));
