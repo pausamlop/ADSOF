@@ -4,7 +4,7 @@ import magnitude.exceptions.QuantityException;
 import units.*;
 
 
-public abstract class MetricSystem implements IPhysicalUnit {
+public abstract class MetricSystem implements IPhysicalUnit, IMetricSystem {
 
     private Quantity quantity;
     private String abbrev;
@@ -13,6 +13,10 @@ public abstract class MetricSystem implements IPhysicalUnit {
     public MetricSystem(Quantity quantity, String abbrev) {
         this.quantity = quantity;
         this.abbrev = abbrev;
+    }
+
+    public MetricSystem(Quantity quantity) {
+        this.quantity = quantity;
     }
 
     public Quantity getQuantity() {
@@ -24,7 +28,7 @@ public abstract class MetricSystem implements IPhysicalUnit {
     }
 
     public boolean canTransformTo(IPhysicalUnit u) {
-        if(u.getQuantity().equals(this.quantity)) {
+        if(u.getClass().equals(this.getClass())) {
             return true;
         }
         return false;
