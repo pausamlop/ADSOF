@@ -14,7 +14,7 @@ public class SiLengthMetricSystem extends MetricSystem {
     public static final IPhysicalUnit MILIMETER =  new SiLengthMetricSystem(Quantity.LENGTH, "mm", 0.001);
 
     private double metros;
-    private static SiLengthMetricSystem SYSTEM;
+    public static SiLengthMetricSystem SYSTEM = getInstance();
 
 
     private SiLengthMetricSystem(Quantity quantity, String abbrev, double metros) {
@@ -28,11 +28,12 @@ public class SiLengthMetricSystem extends MetricSystem {
 
 
     public static SiLengthMetricSystem getInstance(){
-        if (getSYSTEM() == null){
-            setSYSTEM(new SiLengthMetricSystem(Quantity.LENGTH));
+        if (SYSTEM == null){
+            SYSTEM = new SiLengthMetricSystem(Quantity.LENGTH);
         }
-        return getSYSTEM();
+        return SYSTEM;
     }
+
 
     
     public double transformTo(double d, IPhysicalUnit u) throws QuantityException {
@@ -61,16 +62,6 @@ public class SiLengthMetricSystem extends MetricSystem {
     public IPhysicalUnit base(){
         return METER;
     }
-
-	public static SiLengthMetricSystem getSYSTEM() {
-		return SYSTEM;
-	}
-
-	public static void setSYSTEM(SiLengthMetricSystem sYSTEM) {
-		SYSTEM = sYSTEM;
-	}
-    
-
 
 
 }

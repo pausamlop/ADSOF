@@ -14,7 +14,7 @@ public class ImperialLengthMetricSystem extends MetricSystem{
     public static final IPhysicalUnit FOOT =  new ImperialLengthMetricSystem(Quantity.LENGTH, "ft", 1);
 
     private double feet;
-    private static ImperialLengthMetricSystem SYSTEM;
+    public static ImperialLengthMetricSystem SYSTEM = getInstance();
 
 
     private ImperialLengthMetricSystem(Quantity quantity, String abbrev, double feet) {
@@ -60,7 +60,5 @@ public class ImperialLengthMetricSystem extends MetricSystem{
         return FOOT;
     }
     
-
-
 
 }

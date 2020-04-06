@@ -13,7 +13,7 @@ public class SiTimeMetricSystem extends MetricSystem {
     public static final IPhysicalUnit MILISECOND = new SiTimeMetricSystem(Quantity.TIME, "ms", 0.0001);
 
     private double segundos;
-    private static SiTimeMetricSystem SYSTEM;
+    private static SiTimeMetricSystem SYSTEM  = getInstance();
 
 
     private SiTimeMetricSystem(Quantity quantity, String abbrev, double segundos) {

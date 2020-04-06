@@ -7,7 +7,7 @@ import metricSystems.si.length.SiLengthMetricSystem;
 public class MetricSystemTest {
 
 	public static void main(String[] args) {
-		IMetricSystem ms = SiLengthMetricSystem.getInstance();
+		IMetricSystem ms = SiLengthMetricSystem.SYSTEM;
 		// new SiLengthMetricSystem();	// dar�a error de compilaci�n
 		System.out.println(ms.units());
 		System.out.println("Base = "+ms.base());
