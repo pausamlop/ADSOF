@@ -59,5 +59,11 @@ public class Magnitude implements IMagnitude {
 	public double getValue() {
 		return this.value;
 	}
+	
+	@Override
+	public String toString() {
+        String buf = String.format("%.1f", getValue()); 		
+        return   buf + " " +getUnit().toString();
+	}
 
 }
