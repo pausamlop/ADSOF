@@ -1,6 +1,7 @@
 package magnitude;
 
 import magnitude.exceptions.QuantityException;
+import metricSystems.si.length.SiLengthMetricSystem;
 import units.IPhysicalUnit;
 
 public class Magnitude implements IMagnitude {
@@ -18,7 +19,7 @@ public class Magnitude implements IMagnitude {
 
 	public IMagnitude add(IMagnitude m) throws QuantityException {
 		try {
-			getUnit().canTransformTo(m.getUnit()); 
+			(this.unit).canTransformTo(m.getUnit()); 
 			value += m.transformTo(this.unit).getValue();
 			return this;
 		}
@@ -30,7 +31,7 @@ public class Magnitude implements IMagnitude {
 
 	public IMagnitude subs(IMagnitude m) throws QuantityException {
 		try {
-			getUnit().canTransformTo(m.getUnit()); 
+			(this.unit).canTransformTo(m.getUnit()); 
 			value -= m.transformTo(this.unit).getValue();
 			return this;
 		}
@@ -41,9 +42,9 @@ public class Magnitude implements IMagnitude {
 
 	public IMagnitude transformTo(IPhysicalUnit c) throws QuantityException {
 		try{
-			this.value = c.transformTo(this.getValue(), this.getUnit());
+			IMagnitude m  = new Magnitude((this.unit).transformTo(this.value, c), c);
+			return m;
 
-			return this;
 		}
 		catch(QuantityException ex){
 			throw new QuantityException();
@@ -62,8 +63,8 @@ public class Magnitude implements IMagnitude {
 	
 	@Override
 	public String toString() {
-        String buf = String.format("%.1f", getValue()); 		
-        return   buf + " " +getUnit().toString();
+        String buf = String.format("%.1f", this.value); 		
+        return  buf + " " + "[" + this.unit + "]";
 	}
 
 }

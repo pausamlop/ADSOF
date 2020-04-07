@@ -38,7 +38,8 @@ public class SiLengthMetricSystem extends MetricSystem {
     
     public double transformTo(double d, IPhysicalUnit u) throws QuantityException {
         if (canTransformTo(u)) {
-            return d / this.metros / ((SiLengthMetricSystem)u).metros;
+            return d * this.metros / ((SiLengthMetricSystem)u).metros;
+            
 
         }
 
