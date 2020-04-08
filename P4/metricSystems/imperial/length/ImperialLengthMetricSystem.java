@@ -9,27 +9,27 @@ import metricSystems.MetricSystem;
 
 
 public class ImperialLengthMetricSystem extends MetricSystem{
-    public static final IPhysicalUnit YARD =  new ImperialLengthMetricSystem(Quantity.LENGTH, "yd",3);
-    public static final IPhysicalUnit MILE =  new ImperialLengthMetricSystem(Quantity.LENGTH, "mi", 5280);
-    public static final IPhysicalUnit FOOT =  new ImperialLengthMetricSystem(Quantity.LENGTH, "ft", 1);
+    public static final IPhysicalUnit YARD =  new ImperialLengthMetricSystem("yd",3);
+    public static final IPhysicalUnit MILE =  new ImperialLengthMetricSystem("mi", 5280);
+    public static final IPhysicalUnit FOOT =  new ImperialLengthMetricSystem("ft", 1);
 
     private double feet;
     public static ImperialLengthMetricSystem SYSTEM = getInstance();
 
 
-    private ImperialLengthMetricSystem(Quantity quantity, String abbrev, double feet) {
-        super(quantity, abbrev);
+    private ImperialLengthMetricSystem(String abbrev, double feet) {
+        super(Quantity.LENGTH, abbrev);
         this.feet = feet;
     }
 
-    private ImperialLengthMetricSystem(Quantity quantity) {
-        super(quantity);
+    private ImperialLengthMetricSystem() {
+        super(Quantity.LENGTH);
     }
 
 
     public static ImperialLengthMetricSystem getInstance(){
         if (SYSTEM == null){
-            SYSTEM = new ImperialLengthMetricSystem(Quantity.LENGTH);
+            SYSTEM = new ImperialLengthMetricSystem();
         }
         return SYSTEM;
     }

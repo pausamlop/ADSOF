@@ -9,6 +9,8 @@ public abstract class MetricSystem implements IPhysicalUnit, IMetricSystem {
     private Quantity quantity;
     private String abbrev;
 
+    private MetricSystemConverter converter;
+
 
     public MetricSystem(Quantity quantity, String abbrev) {
         this.quantity = quantity;
@@ -37,7 +39,11 @@ public abstract class MetricSystem implements IPhysicalUnit, IMetricSystem {
     public abstract double transformTo(double d, IPhysicalUnit u) throws QuantityException ;
 
     public IMetricSystemConverter getConverter(IMetricSystem to) {
-        //return;
+        return converter;
+    }
+
+    public void registerConverter(IMetricSystem to) {
+        this.converter = (MetricSystemConverter) to;
     }
 
     @Override

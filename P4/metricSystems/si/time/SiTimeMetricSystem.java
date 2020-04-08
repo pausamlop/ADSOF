@@ -8,26 +8,26 @@ import units.*;
 
 public class SiTimeMetricSystem extends MetricSystem {
     
-    public static final IPhysicalUnit HOUR = new SiTimeMetricSystem(Quantity.TIME, "h", 60);
-    public static final IPhysicalUnit SECOND = new SiTimeMetricSystem(Quantity.TIME, "s", 1);
-    public static final IPhysicalUnit MILISECOND = new SiTimeMetricSystem(Quantity.TIME, "ms", 0.0001);
+    public static final IPhysicalUnit HOUR = new SiTimeMetricSystem( "h", 60);
+    public static final IPhysicalUnit SECOND = new SiTimeMetricSystem("s", 1);
+    public static final IPhysicalUnit MILISECOND = new SiTimeMetricSystem("ms", 0.0001);
 
     private double segundos;
     private static SiTimeMetricSystem SYSTEM  = getInstance();
 
 
-    private SiTimeMetricSystem(Quantity quantity, String abbrev, double segundos) {
-        super(quantity, abbrev);
+    private SiTimeMetricSystem(String abbrev, double segundos) {
+        super(Quantity.TIME, abbrev);
         this.segundos = segundos;
     }
 
-    private SiTimeMetricSystem(Quantity quantity) {
-        super(quantity);
+    private SiTimeMetricSystem() {
+        super(Quantity.TIME);
     }
     
     public static SiTimeMetricSystem getInstance(){
         if (SYSTEM == null){
-            SYSTEM = new SiTimeMetricSystem(Quantity.TIME);
+            SYSTEM = new SiTimeMetricSystem();
         }
         return SYSTEM;
     }

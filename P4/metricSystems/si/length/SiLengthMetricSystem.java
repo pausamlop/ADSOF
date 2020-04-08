@@ -9,27 +9,27 @@ import metricSystems.MetricSystem;
 
 public class SiLengthMetricSystem extends MetricSystem {
 
-    public static final IPhysicalUnit METER =  new SiLengthMetricSystem(Quantity.LENGTH, "m",1);
-    public static final IPhysicalUnit KILOMETER =  new SiLengthMetricSystem(Quantity.LENGTH, "km", 1000);
-    public static final IPhysicalUnit MILIMETER =  new SiLengthMetricSystem(Quantity.LENGTH, "mm", 0.001);
+    public static final IPhysicalUnit METER =  new SiLengthMetricSystem( "m",1);
+    public static final IPhysicalUnit KILOMETER =  new SiLengthMetricSystem("km", 1000);
+    public static final IPhysicalUnit MILIMETER =  new SiLengthMetricSystem("mm", 0.001);
 
     private double metros;
     public static SiLengthMetricSystem SYSTEM = getInstance();
 
 
-    private SiLengthMetricSystem(Quantity quantity, String abbrev, double metros) {
-        super(quantity, abbrev);
+    private SiLengthMetricSystem(String abbrev, double metros) {
+        super(Quantity.LENGTH, abbrev);
         this.metros = metros;
     }
 
-    private SiLengthMetricSystem(Quantity quantity) {
-        super(quantity);
+    private SiLengthMetricSystem() {
+        super(Quantity.LENGTH);
     }
 
 
     public static SiLengthMetricSystem getInstance(){
         if (SYSTEM == null){
-            SYSTEM = new SiLengthMetricSystem(Quantity.LENGTH);
+            SYSTEM = new SiLengthMetricSystem();
         }
         return SYSTEM;
     }
