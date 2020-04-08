@@ -36,6 +36,9 @@ public abstract class MetricSystem implements IPhysicalUnit, IMetricSystem {
     
     public abstract double transformTo(double d, IPhysicalUnit u) throws QuantityException ;
 
+    public IMetricSystemConverter getConverter(IMetricSystem to) {
+        //return;
+    }
 
     @Override
     public String toString() {
