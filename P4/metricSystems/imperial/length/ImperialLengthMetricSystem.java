@@ -13,13 +13,11 @@ public class ImperialLengthMetricSystem extends MetricSystem{
     public static final IPhysicalUnit MILE =  new ImperialLengthMetricSystem("mi", 5280);
     public static final IPhysicalUnit FOOT =  new ImperialLengthMetricSystem("ft", 1);
 
-    private double feet;
     public static ImperialLengthMetricSystem SYSTEM = getInstance();
 
 
-    private ImperialLengthMetricSystem(String abbrev, double feet) {
-        super(Quantity.LENGTH, abbrev);
-        this.feet = feet;
+    private ImperialLengthMetricSystem(String abbrev, double equiv) {
+        super(Quantity.LENGTH, abbrev, equiv);
     }
 
     private ImperialLengthMetricSystem() {
@@ -34,17 +32,7 @@ public class ImperialLengthMetricSystem extends MetricSystem{
         return SYSTEM;
     }
 
-    
-    public double transformTo(double d, IPhysicalUnit u) throws QuantityException {
-        if (canTransformTo(u)) {
-            return d / this.feet / ((ImperialLengthMetricSystem)u).feet;
-
-        }
-
-        else {
-            throw new QuantityException();
-        }
-    }
+  
 
     public Collection<IPhysicalUnit> units() {
         Collection<IPhysicalUnit> units = new ArrayList<IPhysicalUnit>();

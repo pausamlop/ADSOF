@@ -1,6 +1,7 @@
 package metricSystems;
 
 import magnitude.exceptions.QuantityException;
+import metricSystems.imperial.length.ImperialLengthMetricSystem;
 import units.*;
 
 
@@ -8,13 +9,15 @@ public abstract class MetricSystem implements IPhysicalUnit, IMetricSystem {
 
     private Quantity quantity;
     private String abbrev;
+    private double equiv;
 
     private MetricSystemConverter converter;
 
 
-    public MetricSystem(Quantity quantity, String abbrev) {
+    public MetricSystem(Quantity quantity, String abbrev, double equiv) {
         this.quantity = quantity;
         this.abbrev = abbrev;
+        this.equiv = equiv;
     }
 
     public MetricSystem(Quantity quantity) {
@@ -36,7 +39,16 @@ public abstract class MetricSystem implements IPhysicalUnit, IMetricSystem {
         return false;
     }
     
-    public abstract double transformTo(double d, IPhysicalUnit u) throws QuantityException ;
+    public double transformTo(double d, IPhysicalUnit u) throws QuantityException {
+        if (canTransformTo(u)) {
+            return d * this.equiv / ((MetricSystem)u).equiv;
+
+        }
+
+        else {
+            throw new QuantityException();
+        }
+    }
 
     public IMetricSystemConverter getConverter(IMetricSystem to) {
         return converter;

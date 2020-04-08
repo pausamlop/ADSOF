@@ -13,13 +13,12 @@ public class SiLengthMetricSystem extends MetricSystem {
     public static final IPhysicalUnit KILOMETER =  new SiLengthMetricSystem("km", 1000);
     public static final IPhysicalUnit MILIMETER =  new SiLengthMetricSystem("mm", 0.001);
 
-    private double metros;
+
     public static SiLengthMetricSystem SYSTEM = getInstance();
 
 
-    private SiLengthMetricSystem(String abbrev, double metros) {
-        super(Quantity.LENGTH, abbrev);
-        this.metros = metros;
+    private SiLengthMetricSystem(String abbrev, double equiv) {
+        super(Quantity.LENGTH, abbrev, equiv);
     }
 
     private SiLengthMetricSystem() {
@@ -33,21 +32,6 @@ public class SiLengthMetricSystem extends MetricSystem {
         }
         return SYSTEM;
     }
-
-
-    
-    public double transformTo(double d, IPhysicalUnit u) throws QuantityException {
-        if (canTransformTo(u)) {
-            return d * this.metros / ((SiLengthMetricSystem)u).metros;
-            
-
-        }
-
-        else {
-            throw new QuantityException();
-        }
-    }
-
 
 
     public Collection<IPhysicalUnit> units() {

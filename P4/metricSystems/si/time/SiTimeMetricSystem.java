@@ -12,13 +12,11 @@ public class SiTimeMetricSystem extends MetricSystem {
     public static final IPhysicalUnit SECOND = new SiTimeMetricSystem("s", 1);
     public static final IPhysicalUnit MILISECOND = new SiTimeMetricSystem("ms", 0.0001);
 
-    private double segundos;
     private static SiTimeMetricSystem SYSTEM  = getInstance();
 
 
-    private SiTimeMetricSystem(String abbrev, double segundos) {
-        super(Quantity.TIME, abbrev);
-        this.segundos = segundos;
+    private SiTimeMetricSystem(String abbrev, double equiv) {
+        super(Quantity.TIME, abbrev, equiv);
     }
 
     private SiTimeMetricSystem() {
@@ -31,18 +29,6 @@ public class SiTimeMetricSystem extends MetricSystem {
         }
         return SYSTEM;
     }
-
-    
-    public double transformTo(double d, IPhysicalUnit u) throws QuantityException {
-        if (canTransformTo(u)) {
-            return d / this.segundos / ((SiTimeMetricSystem)u).segundos;
-        }
-
-        else {
-            throw new QuantityException();
-        }
-    }
-    
 
 
     public Collection<IPhysicalUnit> units() {
