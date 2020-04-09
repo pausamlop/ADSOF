@@ -10,7 +10,7 @@ import metricSystems.MetricSystem;
 
 public class ImperialLengthMetricSystem extends MetricSystem{
     public static final IPhysicalUnit YARD =  new ImperialLengthMetricSystem("yd",3);
-    public static final IPhysicalUnit MILE =  new ImperialLengthMetricSystem("mi", 5280);
+    public static final IPhysicalUnit MILE =  new ImperialLengthMetricSystem("ml", 5280);
     public static final IPhysicalUnit FOOT =  new ImperialLengthMetricSystem("ft", 1);
 
     public static ImperialLengthMetricSystem SYSTEM = getInstance();

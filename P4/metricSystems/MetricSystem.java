@@ -11,7 +11,7 @@ public abstract class MetricSystem implements IPhysicalUnit, IMetricSystem {
     private String abbrev;
     private double equiv;
 
-    private MetricSystemConverter converter;
+    private static IMetricSystemConverter converter;
 
 
     public MetricSystem(Quantity quantity, String abbrev, double equiv) {
@@ -50,12 +50,16 @@ public abstract class MetricSystem implements IPhysicalUnit, IMetricSystem {
         }
     }
 
-    public IMetricSystemConverter getConverter(IMetricSystem to) {
-        return converter;
+    public IMetricSystemConverter getConverter() {
+        return (MetricSystemConverter)converter;
     }
 
-    public void registerConverter(IMetricSystem to) {
-        this.converter = (MetricSystemConverter) to;
+    public static void registerConverter(IMetricSystemConverter to) {
+        converter =  to;
+    }
+
+    public IMetricSystem getMetricSystem(){
+        return (IMetricSystem)this;
     }
 
     @Override

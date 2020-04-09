@@ -1,6 +1,11 @@
 package magnitude;
 
 import magnitude.exceptions.QuantityException;
+import magnitude.exceptions.UnknownUnitException;
+import metricSystems.IMetricSystem;
+import metricSystems.IMetricSystemConverter;
+import metricSystems.MetricSystem;
+import metricSystems.MetricSystemConverter;
 import metricSystems.si.length.SiLengthMetricSystem;
 import units.IPhysicalUnit;
 
@@ -41,14 +46,37 @@ public class Magnitude implements IMagnitude {
 	}
 
 	public IMagnitude transformTo(IPhysicalUnit c) throws QuantityException {
-		try{
-			IMagnitude m  = new Magnitude((this.unit).transformTo(this.value, c), c);
-			return m;
+		try {
+
+			// Caso1: mismo sistema metrico
+			if((this.unit).canTransformTo(c)){	
+				IMagnitude m  = new Magnitude((this.unit).transformTo(this.value, c), c);
+				return m;
+			}
+			
+			// Caso2: distintas quantities
+			else if (!unit.getQuantity().equals(c.getQuantity())){
+				throw new QuantityException();
+			}
+
+			// Caso3: misma quantity, pero distinto si, con converter
+			else if ((c.getMetricSystem().getConverter()) != null){
+
+				MetricSystemConverter metric = (MetricSystemConverter) c.getMetricSystem().getConverter();
+				return ((MetricSystemConverter) metric).transformTo((IMagnitude)this,c);
+
+			// Caso4: misma quantity, pero distinto si, con converter
+			} else {
+				System.out.println("Cannot transform " + this.getUnit() + " to " + c);
+				return null;
+			}
+
 
 		}
-		catch(QuantityException ex){
+		catch (QuantityException | UnknownUnitException ex){
 			throw new QuantityException();
 		}
+
 	}
 
 
