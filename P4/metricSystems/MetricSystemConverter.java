@@ -37,7 +37,7 @@ public abstract class MetricSystemConverter implements IMetricSystemConverter{
     public IMagnitude transformTo(IMagnitude from, IPhysicalUnit to) throws UnknownUnitException{
 
         try {
-            if (to.getMetricSystem().equals(this.targetSystem)){
+            if (to.getMetricSystem().getClass().equals(this.targetSystem.getClass())){
 
                 // transformar unidades de from a unidad base
                 double value = ((MetricSystem)(from.getUnit().getMetricSystem())).transformTo(from.getValue(), from.getUnit().getMetricSystem().base());
@@ -50,8 +50,13 @@ public abstract class MetricSystemConverter implements IMetricSystemConverter{
                 // transformar de base de to a to
 
                 return new Magnitude( ((MetricSystem)(m2.getUnit().getMetricSystem())).transformTo(m2.getValue(), to), to);
-
-            } else {
+                
+            }else if (to.getMetricSystem().getClass().equals(this.sourceSystem.getClass())){
+                	IMetricSystemConverter n = this.reverse();
+                	return ((MetricSystemConverter)n).transformTo(from, to);
+                	
+                }
+            else {
                 throw new UnknownUnitException();
             }
             }

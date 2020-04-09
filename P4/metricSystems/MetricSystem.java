@@ -58,8 +58,8 @@ public abstract class MetricSystem implements IPhysicalUnit, IMetricSystem {
         converter =  to;
     }
 
-    public IMetricSystem getMetricSystem(){
-        return (IMetricSystem)this;
+    public IMetricSystem getMetricSystem() {
+    	return this;
     }
 
     @Override

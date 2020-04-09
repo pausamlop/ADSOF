@@ -20,10 +20,7 @@ public class SiLength2ImperialConverter extends MetricSystemConverter {
         super(SiLengthMetricSystem.SYSTEM, ImperialLengthMetricSystem.SYSTEM, 3.280839895);
     }
 
-
-    public IMagnitude transformTo(IMagnitude from, IPhysicalUnit to) throws UnknownUnitException {
-        return null;
-    }  
+  
 
     public IMetricSystemConverter reverse(){
         return new Imperial2SiLengthConverter();
