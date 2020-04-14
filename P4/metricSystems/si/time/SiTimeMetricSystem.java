@@ -2,27 +2,18 @@ package metricSystems.si.time;
 
 import java.util.*;
 
-import magnitude.exceptions.QuantityException;
-import metricSystems.IMetricSystem;
 import metricSystems.MetricSystem;
 import units.*;
 
 public class SiTimeMetricSystem extends MetricSystem {
     
-    public static final IPhysicalUnit HOUR = new SiTimeMetricSystem( "h", 60);
-    public static final IPhysicalUnit SECOND = new SiTimeMetricSystem("s", 1);
-    public static final IPhysicalUnit MILISECOND = new SiTimeMetricSystem("ms", 0.0001);
 
     private static SiTimeMetricSystem SYSTEM  = getInstance();
+    
+    public static final IPhysicalUnit HOUR = new PhysicalUnit(Quantity.TIME ,"h", 60,SYSTEM);
+    public static final IPhysicalUnit SECOND = new PhysicalUnit(Quantity.TIME,"s", 1, SYSTEM);
+    public static final IPhysicalUnit MILISECOND = new PhysicalUnit(Quantity.TIME,"ms", 0.0001,SYSTEM);
 
-
-    private SiTimeMetricSystem(String abbrev, double equiv) {
-        super(Quantity.TIME, abbrev, equiv);
-    }
-
-    private SiTimeMetricSystem() {
-        super(Quantity.TIME);
-    }
     
     public static SiTimeMetricSystem getInstance(){
         if (SYSTEM == null){

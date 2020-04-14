@@ -2,11 +2,7 @@ package magnitude;
 
 import magnitude.exceptions.QuantityException;
 import magnitude.exceptions.UnknownUnitException;
-import metricSystems.IMetricSystem;
-import metricSystems.IMetricSystemConverter;
-import metricSystems.MetricSystem;
 import metricSystems.MetricSystemConverter;
-import metricSystems.si.length.SiLengthMetricSystem;
 import units.IPhysicalUnit;
 
 public class Magnitude implements IMagnitude {
@@ -20,8 +16,13 @@ public class Magnitude implements IMagnitude {
 		this.value = value;
 		this.unit = unit;
 	}
+	
+	public IPhysicalUnit getUnit() { return this.unit; }
+	
+	public double getValue() { return this.value; }
 
 
+	
 	public IMagnitude add(IMagnitude m) throws QuantityException {
 		try {
 			(this.unit).canTransformTo(m.getUnit()); 
@@ -79,15 +80,6 @@ public class Magnitude implements IMagnitude {
 
 	}
 
-
-	public IPhysicalUnit getUnit() {
-		return this.unit;
-	}
-
-	
-	public double getValue() {
-		return this.value;
-	}
 	
 	@Override
 	public String toString() {

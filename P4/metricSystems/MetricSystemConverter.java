@@ -40,16 +40,15 @@ public abstract class MetricSystemConverter implements IMetricSystemConverter{
             if (to.getMetricSystem().getClass().equals(this.targetSystem.getClass())){
 
                 // transformar unidades de from a unidad base
-                double value = ((MetricSystem)(from.getUnit().getMetricSystem())).transformTo(from.getValue(), from.getUnit().getMetricSystem().base());
 
-                IMagnitude m1  = new Magnitude(value, from.getUnit().getMetricSystem().base());
+                double value = from.getUnit().transformTo(from.getValue(), from.getUnit().getMetricSystem().base());
 
                 // transformar base a base de to
                 IMagnitude m2 = new Magnitude(value*this.change, targetSystem.base());
 
                 // transformar de base de to a to
 
-                return new Magnitude( ((MetricSystem)(m2.getUnit().getMetricSystem())).transformTo(m2.getValue(), to), to);
+                return new Magnitude( m2.getUnit().transformTo(m2.getValue(), to), to);
                 
             }else if (to.getMetricSystem().getClass().equals(this.sourceSystem.getClass())){
                 	IMetricSystemConverter n = this.reverse();

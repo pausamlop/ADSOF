@@ -2,28 +2,19 @@ package metricSystems.imperial.length;
 
 import java.util.*;
 
-import magnitude.exceptions.QuantityException;
+
 import units.*;
-import metricSystems.IMetricSystem;
 import metricSystems.MetricSystem;
 
 
 
 public class ImperialLengthMetricSystem extends MetricSystem{
-    public static final IPhysicalUnit YARD =  new ImperialLengthMetricSystem("yd",3);
-    public static final IPhysicalUnit MILE =  new ImperialLengthMetricSystem("ml", 5280);
-    public static final IPhysicalUnit FOOT =  new ImperialLengthMetricSystem("ft", 1);
 
     public static ImperialLengthMetricSystem SYSTEM = getInstance();
-
-
-    private ImperialLengthMetricSystem(String abbrev, double equiv) {
-        super(Quantity.LENGTH, abbrev, equiv);
-    }
-
-    private ImperialLengthMetricSystem() {
-        super(Quantity.LENGTH);
-    }
+    
+    public static final IPhysicalUnit YARD =  new PhysicalUnit(Quantity.LENGTH,"yd",3, SYSTEM);
+    public static final IPhysicalUnit MILE =  new PhysicalUnit(Quantity.LENGTH,"ml", 5280, SYSTEM);
+    public static final IPhysicalUnit FOOT =  new PhysicalUnit(Quantity.LENGTH,"ft", 1, SYSTEM);
 
 
     public static ImperialLengthMetricSystem getInstance(){
@@ -33,7 +24,6 @@ public class ImperialLengthMetricSystem extends MetricSystem{
         return SYSTEM;
     }
 
-  
 
     public Collection<IPhysicalUnit> units() {
         Collection<IPhysicalUnit> units = new ArrayList<IPhysicalUnit>();
@@ -42,7 +32,6 @@ public class ImperialLengthMetricSystem extends MetricSystem{
         units.add(FOOT);
         
         return units;
-
     }
 
     public IPhysicalUnit base(){

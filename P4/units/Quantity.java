@@ -15,5 +15,11 @@ public enum Quantity {
             public String toString() {
                 return "T";
             }
+    },
+        COMPOSITE {
+            @Override
+            public String toString() {
+                return "C";
+            }
     };
 }

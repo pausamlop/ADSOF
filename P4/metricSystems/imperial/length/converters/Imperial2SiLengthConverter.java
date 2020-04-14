@@ -1,11 +1,8 @@
 package metricSystems.imperial.length.converters;
 
-import magnitude.IMagnitude;
 import metricSystems.imperial.length.ImperialLengthMetricSystem;
 import metricSystems.si.length.SiLengthMetricSystem;
 import metricSystems.si.length.converters.SiLength2ImperialConverter;
-import magnitude.exceptions.UnknownUnitException;
-import units.IPhysicalUnit;
 import metricSystems.*;
 
 
