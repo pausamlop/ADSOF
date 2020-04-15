@@ -83,8 +83,7 @@ public class Magnitude implements IMagnitude {
 	
 	@Override
 	public String toString() {
-        String buf = String.format("%.1f", this.value); 		
-        return  buf + " " + "[" + this.unit + "]";
+        return  this.value + " " + "[" + this.unit + "]";
 	}
 
 }
