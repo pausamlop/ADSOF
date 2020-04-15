@@ -7,6 +7,12 @@ import units.*;
 import metricSystems.MetricSystem;
 
 
+/**
+ * Esta clase implementa el sistema metrico imperial
+ * 
+ * @author Miguel Escribano miguel.escribanoo@estudiante.uam.es
+ * @author Paula Samper paula.samper@estudiante.uam.es
+ */
 
 public class ImperialLengthMetricSystem extends MetricSystem{
 
@@ -16,7 +22,13 @@ public class ImperialLengthMetricSystem extends MetricSystem{
     public static final IPhysicalUnit MILE =  new PhysicalUnit(Quantity.LENGTH,"ml", 5280, SYSTEM);
     public static final IPhysicalUnit FOOT =  new PhysicalUnit(Quantity.LENGTH,"ft", 1, SYSTEM);
 
-
+    
+    /**
+     * Getter para implementar una clase singleton
+     * 
+     * @return objecto unico de la clase
+     */
+    
     public static ImperialLengthMetricSystem getInstance(){
         if (SYSTEM == null){
             SYSTEM = new ImperialLengthMetricSystem();
@@ -24,7 +36,14 @@ public class ImperialLengthMetricSystem extends MetricSystem{
         return SYSTEM;
     }
 
-
+    
+    /**
+     * Devuelve una coleccion con las unidades del sistema metrico
+     * 
+     * @return coleccion de unidades
+     */
+    
+    @Override
     public Collection<IPhysicalUnit> units() {
         Collection<IPhysicalUnit> units = new ArrayList<IPhysicalUnit>();
         units.add(YARD);
@@ -33,10 +52,17 @@ public class ImperialLengthMetricSystem extends MetricSystem{
         
         return units;
     }
-
-    public IPhysicalUnit base(){
-        return FOOT;
-    }
+    
+    
+    
+    /**
+     * Devuelve la unidad base del sistema metrico
+     * 
+     * @return unidad base
+     */
+    
+    @Override
+    public IPhysicalUnit base(){ return FOOT; }
    
     
 

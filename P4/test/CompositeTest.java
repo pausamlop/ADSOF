@@ -1,6 +1,7 @@
 package test;
 
 import units.CompositeUnit;
+
 import units.ICompositeUnit.Operator;
 import units.PhysicalUnit;
 import magnitude.IMagnitude;
@@ -11,6 +12,12 @@ import metricSystems.imperial.length.ImperialLengthMetricSystem;
 import metricSystems.si.length.SiLengthMetricSystem;
 import metricSystems.si.length.converters.SiLength2ImperialConverter;
 import metricSystems.si.time.SiTimeMetricSystem;
+
+/**
+ * Tester del Apartado 6
+ * 
+ * @author Profesores de ADSOF
+ */
 
 public class CompositeTest {
 	public static void main(String[] args) throws QuantityException{

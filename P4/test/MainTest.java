@@ -6,6 +6,13 @@ import magnitude.exceptions.QuantityException;
 import metricSystems.si.length.SiLengthMetricSystem;
 import metricSystems.si.time.SiTimeMetricSystem;
 
+
+/**
+ * Tester del Apartado 3
+ * 
+ * @author Profesores de ADSOF
+ */
+
 public class MainTest {
 
 	public static void main(String[] args) throws QuantityException{

@@ -4,6 +4,11 @@ import metricSystems.IMetricSystem;
 import metricSystems.imperial.length.ImperialLengthMetricSystem;
 import metricSystems.si.length.SiLengthMetricSystem;
 
+/**
+ * Tester del Apartado 2
+ * 
+ * @author Profesores de ADSOF
+ */
 public class MetricSystemTest {
 
 	public static void main(String[] args) {

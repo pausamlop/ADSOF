@@ -7,6 +7,11 @@ import metricSystems.imperial.length.ImperialLengthMetricSystem;
 import metricSystems.si.length.SiLengthMetricSystem;
 import metricSystems.si.length.converters.SiLength2ImperialConverter;
 
+/**
+ * Tester del Apartado 4
+ * 
+ * @author Profesores de ADSOF
+ */
 
 public class ConversionTest {
 

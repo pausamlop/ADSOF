@@ -5,24 +5,46 @@ import magnitude.exceptions.UnknownUnitException;
 import metricSystems.MetricSystemConverter;
 import units.IPhysicalUnit;
 
+/**
+ * Esta clase modela los objetos de tipo Magnitude, implementa la interfaz IMagnitude
+ * 
+ * @author Miguel Escribano miguel.escribanoo@estudiante.uam.es
+ * @author Paula Samper paula.samper@estudiante.uam.es
+ */
+
 public class Magnitude implements IMagnitude {
 
 	double value;
 	IPhysicalUnit unit;
 
-
+  /**
+     * Método constructor de la clase Magnitude
+	 * 
+     * @param value double
+     * @param unit IPhysicalUnit	 
+     */
 
 	public Magnitude(double value, IPhysicalUnit unit) {
 		this.value = value;
 		this.unit = unit;
 	}
-	
-	public IPhysicalUnit getUnit() { return this.unit; }
-	
+
+	@Override
 	public double getValue() { return this.value; }
-
+	
+	@Override
+	public IPhysicalUnit getUnit() { return this.unit; }
 
 	
+  /**
+     * Método que realiza la suma de dos magnitudes, modificando la magnitud actual.
+	 * El método lanza QuantityException si no se puede realizar tal operación
+	 * 
+     * @param m IMagnitude que queremos sumar
+     * @return IMagnitude actual, realizada la suma
+     */
+	
+	@Override
 	public IMagnitude add(IMagnitude m) throws QuantityException {
 		try {
 			(this.unit).canTransformTo(m.getUnit()); 
@@ -33,8 +55,17 @@ public class Magnitude implements IMagnitude {
 			throw new QuantityException();
 		}
 	}
+	
 
-
+ /**
+     * Método que realiza la resta de dos magnitudes, modificando la magnitud actual.
+	 * El método lanza QuantityException si no se puede realizar tal operación
+	 * 
+     * @param m IMagnitude que queremos restar
+     * @return IMagnitude actual, realizada la resta
+     */
+	
+	@Override
 	public IMagnitude subs(IMagnitude m) throws QuantityException {
 		try {
 			(this.unit).canTransformTo(m.getUnit()); 
@@ -46,6 +77,19 @@ public class Magnitude implements IMagnitude {
 		}
 	}
 
+	
+	 /**
+     * Método que transforma la magnitud actual a otra unidad. Se sigue un camino según la
+	 * unidad de destino sea del mismo sistema métrico o no, exista un conversor para que 
+	 * permita realizar la operación entre distintos sistemas métricos, etc.
+	 * 
+	 * Si no se puede realizar dicho cambio, el método lanza excepción de tipo QuantityException
+	 * 
+     * @param c IPhysicalUnit a la que se quiere realizar el cambio
+     * @return IMagnitude una vez realizado el cambio
+     */
+
+	@Override
 	public IMagnitude transformTo(IPhysicalUnit c) throws QuantityException {
 		try {
 
@@ -80,10 +124,18 @@ public class Magnitude implements IMagnitude {
 
 	}
 
+	 /**
+     * Modificación del método toString para adecuarlo a la salida
+	 * deseada
+	 * 
+     * @return String deseado para imprimir por pantalla
+     */
 	
 	@Override
-	public String toString() {
+	public String toString() {	
         return  this.value + " " + "[" + this.unit + "]";
 	}
+
+
 
 }

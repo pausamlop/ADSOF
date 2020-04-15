@@ -6,6 +6,11 @@ import magnitude.exceptions.QuantityException;
 import metricSystems.si.length.SiLengthMetricSystem;
 import metricSystems.si.time.SiTimeMetricSystem;
 
+/**
+ * Tester del Apartado 1
+ * 
+ * @author Profesores de ADSOF
+ */
 
 public class PhysicalUnitTest {
 	public static void main(String[] args) throws QuantityException {

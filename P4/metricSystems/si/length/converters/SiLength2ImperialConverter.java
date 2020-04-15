@@ -1,17 +1,17 @@
 package metricSystems.si.length.converters;
 
-import magnitude.IMagnitude;
-import magnitude.exceptions.QuantityException;
-import magnitude.exceptions.UnknownUnitException;
-import metricSystems.IMetricSystem;
 import metricSystems.IMetricSystemConverter;
 import metricSystems.MetricSystemConverter;
 import metricSystems.imperial.length.ImperialLengthMetricSystem;
 import metricSystems.imperial.length.converters.Imperial2SiLengthConverter;
 import metricSystems.si.length.SiLengthMetricSystem;
-import units.IPhysicalUnit;
-import units.Quantity;
-import metricSystems.*;
+
+/**
+ * Esta clase modela el conversor de Imperial a SiLength
+ * 
+ * @author Miguel Escribano miguel.escribanoo@estudiante.uam.es
+ * @author Paula Samper paula.samper@estudiante.uam.es
+ */
 
 public class SiLength2ImperialConverter extends MetricSystemConverter {
 
@@ -20,11 +20,15 @@ public class SiLength2ImperialConverter extends MetricSystemConverter {
         super(SiLengthMetricSystem.SYSTEM, ImperialLengthMetricSystem.SYSTEM, 3.280839895);
     }
 
-  
+    
+    /**
+     * Método que devuelve el conversor inverso al actual
+	 * 	 
+     *
+     * @return IMetricSystemConverter requerido
+     */
 
-    public IMetricSystemConverter reverse(){
-        return new Imperial2SiLengthConverter();
-    }
+    public IMetricSystemConverter reverse(){ return new Imperial2SiLengthConverter(); }
 
     
 }

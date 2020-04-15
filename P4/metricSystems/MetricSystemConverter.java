@@ -6,6 +6,12 @@ import magnitude.exceptions.QuantityException;
 import magnitude.exceptions.UnknownUnitException;
 import units.IPhysicalUnit;
 
+/**
+ * Esta clase abstracta, MetricSystemConverter, implementa la interfaz IMetricSystemConverter
+ * 
+ * @author Miguel Escribano miguel.escribanoo@estudiante.uam.es
+ * @author Paula Samper paula.samper@estudiante.uam.es
+ */
 
 public abstract class MetricSystemConverter implements IMetricSystemConverter{
     
@@ -15,25 +21,42 @@ public abstract class MetricSystemConverter implements IMetricSystemConverter{
     private double change;
 
 
+     /**
+     * Método constructor de la clase MetricSystemConverter
+	 * 
+     * @param sourceSystem IMetricSystem origen
+     * @param targetSystem IMetricSystem destino
+     * @param change double que representa el cambio por el que hay que operar para pasar 
+     * entre los sistemas métricos
+     */
+
     public MetricSystemConverter(IMetricSystem sourceSystem, IMetricSystem targetSystem, double change) {
         this.sourceSystem = sourceSystem;
         this.targetSystem = targetSystem;
         this.change = change;
     }
 
-
-    public IMetricSystem sourceSystem() {
-        return this.sourceSystem;
-    }
-
-   
-    public IMetricSystem targetSystem() {
-        return this.targetSystem;
-    }
-
     
-    //public abstract IMagnitude transformTo(IMagnitude from, IPhysicalUnit to) throws UnknownUnitException; 
-    
+    @Override
+    public IMetricSystem sourceSystem() { return this.sourceSystem; }
+
+    @Override
+    public IMetricSystem targetSystem() { return this.targetSystem; }
+
+
+
+    /**
+     * Método que transforma la magnitud actual a otra unidad. 
+	 * 
+	 * Si no se puede realizar dicho cambio, el método lanza excepción de tipo QuantityException
+	 * 
+     * @param from IMagnitude que se quiere convertir
+     * @param to IPhysicalUnit a la que se quiere convertir
+     * 
+     * @return IMagnitude una vez realizado el cambio
+     */
+
+    @Override
     public IMagnitude transformTo(IMagnitude from, IPhysicalUnit to) throws UnknownUnitException{
 
         try {
@@ -66,6 +89,5 @@ public abstract class MetricSystemConverter implements IMetricSystemConverter{
         
     } 
     
-    public abstract IMetricSystemConverter reverse();
 
 }
