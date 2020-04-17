@@ -1,9 +1,9 @@
-package src.metricSystems.si.time;
+package metricSystems.si.time;
 
 import java.util.*;
 
-import src.metricSystems.MetricSystem;
-import src.units.*;
+import metricSystems.MetricSystem;
+import units.*;
 
 
 /**

@@ -1,4 +1,4 @@
-package src.magnitude.exceptions;
+package magnitude.exceptions;
 
 /**
  * Esta clase modela las excepciones de tipo UnknownUnitException

@@ -1,4 +1,4 @@
-package src.metricSystems;
+package metricSystems;
 
 import java.util.*;
 

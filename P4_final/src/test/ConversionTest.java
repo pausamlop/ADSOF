@@ -1,11 +1,11 @@
-package src.test;
+package test;
 
-import src.magnitude.IMagnitude;
-import src.magnitude.Magnitude;
-import src.magnitude.exceptions.QuantityException;
-import src.metricSystems.imperial.length.ImperialLengthMetricSystem;
-import src.metricSystems.si.length.SiLengthMetricSystem;
-import src.metricSystems.si.length.converters.SiLength2ImperialConverter;
+import magnitude.IMagnitude;
+import magnitude.Magnitude;
+import magnitude.exceptions.QuantityException;
+import metricSystems.imperial.length.ImperialLengthMetricSystem;
+import metricSystems.si.length.SiLengthMetricSystem;
+import metricSystems.si.length.converters.SiLength2ImperialConverter;
 
 /**
  * Tester del Apartado 4

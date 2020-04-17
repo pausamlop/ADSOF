@@ -1,7 +1,7 @@
-package src.metricSystems.si.length;
+package metricSystems.si.length;
 
-import src.units.*;
-import src.metricSystems.MetricSystem;
+import units.*;
+import metricSystems.MetricSystem;
 
 import java.util.*;
 

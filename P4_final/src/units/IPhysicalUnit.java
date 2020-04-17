@@ -1,7 +1,7 @@
-package src.units;
+package units;
 
-import src.magnitude.exceptions.*;
-import src.metricSystems.IMetricSystem;
+import magnitude.exceptions.*;
+import metricSystems.IMetricSystem;
 
 
 

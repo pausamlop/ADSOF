@@ -1,8 +1,8 @@
-package src.metricSystems.si.length.converters;
+package metricSystems.si.length.converters;
 
-import src.metricSystems.MetricSystemConverter;
-import src.metricSystems.imperial.length.ImperialLengthMetricSystem;
-import src.metricSystems.si.length.SiLengthMetricSystem;
+import metricSystems.MetricSystemConverter;
+import metricSystems.imperial.length.ImperialLengthMetricSystem;
+import metricSystems.si.length.SiLengthMetricSystem;
 
 /**
  * Esta clase modela el conversor de Imperial a SiLength

@@ -1,8 +1,8 @@
-package src.metricSystems;
+package metricSystems;
 
 import java.util.Collection;
 
-import src.units.IPhysicalUnit;
+import units.IPhysicalUnit;
 
 
 /**
