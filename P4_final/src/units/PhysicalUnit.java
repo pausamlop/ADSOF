@@ -1,7 +1,7 @@
-package units;
+package src.units;
 
-import magnitude.exceptions.QuantityException;
-import metricSystems.IMetricSystem;
+import src.magnitude.exceptions.QuantityException;
+import src.metricSystems.IMetricSystem;
 
 
 /**

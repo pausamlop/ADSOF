@@ -1,8 +1,8 @@
-package metricSystems;
-import magnitude.IMagnitude;
+package src.metricSystems;
+import src.magnitude.IMagnitude;
 
-import units.IPhysicalUnit;
-import magnitude.exceptions.UnknownUnitException;
+import src.units.IPhysicalUnit;
+import src.magnitude.exceptions.UnknownUnitException;
 
 
 /**

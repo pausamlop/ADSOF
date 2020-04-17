@@ -1,8 +1,8 @@
-package test;
+package src.test;
 
-import metricSystems.IMetricSystem;
-import metricSystems.imperial.length.ImperialLengthMetricSystem;
-import metricSystems.si.length.SiLengthMetricSystem;
+import src.metricSystems.IMetricSystem;
+import src.metricSystems.imperial.length.ImperialLengthMetricSystem;
+import src.metricSystems.si.length.SiLengthMetricSystem;
 
 /**
  * Tester del Apartado 2

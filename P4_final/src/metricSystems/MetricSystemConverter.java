@@ -1,11 +1,10 @@
-package metricSystems;
+package src.metricSystems;
 
-import magnitude.IMagnitude;
-import magnitude.Magnitude;
-import magnitude.exceptions.QuantityException;
-import magnitude.exceptions.UnknownUnitException;
-import metricSystems.si.length.converters.SiLength2ImperialConverter;
-import units.IPhysicalUnit;
+import src.magnitude.IMagnitude;
+import src.magnitude.Magnitude;
+import src.magnitude.exceptions.QuantityException;
+import src.magnitude.exceptions.UnknownUnitException;
+import src.units.IPhysicalUnit;
 
 /**
  * Esta clase abstracta, MetricSystemConverter, implementa la interfaz IMetricSystemConverter

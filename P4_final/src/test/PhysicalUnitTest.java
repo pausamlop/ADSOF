@@ -1,10 +1,10 @@
-package test;
+package src.test;
 
-import units.*;
+import src.units.*;
 
-import magnitude.exceptions.QuantityException;
-import metricSystems.si.length.SiLengthMetricSystem;
-import metricSystems.si.time.SiTimeMetricSystem;
+import src.magnitude.exceptions.QuantityException;
+import src.metricSystems.si.length.SiLengthMetricSystem;
+import src.metricSystems.si.time.SiTimeMetricSystem;
 
 /**
  * Tester del Apartado 1

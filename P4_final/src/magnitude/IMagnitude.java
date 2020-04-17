@@ -1,7 +1,7 @@
-package magnitude;
+package src.magnitude;
 
-import magnitude.exceptions.QuantityException;
-import units.IPhysicalUnit;
+import src.magnitude.exceptions.QuantityException;
+import src.units.IPhysicalUnit;
 
 
 /**

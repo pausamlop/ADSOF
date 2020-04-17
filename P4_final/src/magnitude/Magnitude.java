@@ -1,9 +1,9 @@
-package magnitude;
+package src.magnitude;
 
-import magnitude.exceptions.QuantityException;
-import magnitude.exceptions.UnknownUnitException;
-import metricSystems.MetricSystemConverter;
-import units.IPhysicalUnit;
+import src.magnitude.exceptions.QuantityException;
+import src.magnitude.exceptions.UnknownUnitException;
+import src.metricSystems.MetricSystemConverter;
+import src.units.IPhysicalUnit;
 
 /**
  * Esta clase modela los objetos de tipo Magnitude, implementa la interfaz IMagnitude

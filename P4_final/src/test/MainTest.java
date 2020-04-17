@@ -1,10 +1,10 @@
-package test;
+package src.test;
 
-import magnitude.IMagnitude;
-import magnitude.Magnitude;
-import magnitude.exceptions.QuantityException;
-import metricSystems.si.length.SiLengthMetricSystem;
-import metricSystems.si.time.SiTimeMetricSystem;
+import src.magnitude.IMagnitude;
+import src.magnitude.Magnitude;
+import src.magnitude.exceptions.QuantityException;
+import src.metricSystems.si.length.SiLengthMetricSystem;
+import src.metricSystems.si.time.SiTimeMetricSystem;
 
 
 /**
