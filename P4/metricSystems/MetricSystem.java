@@ -27,7 +27,11 @@ public abstract class MetricSystem implements IMetricSystem {
     	
     }
     
-
+    /**
+     * Registra un conversor
+     * 
+     * @aparam to
+     */
     public static void registerConverter(IMetricSystemConverter to) {
     	if (converters.contains(to)) return;
         converters.add(to);

@@ -4,6 +4,7 @@ import magnitude.exceptions.QuantityException;
 import magnitude.exceptions.UnknownUnitException;
 import metricSystems.MetricSystemConverter;
 import units.IPhysicalUnit;
+import units.composite.CompositeUnit;
 
 /**
  * Esta clase modela los objetos de tipo Magnitude, implementa la interfaz IMagnitude
@@ -93,12 +94,18 @@ public class Magnitude implements IMagnitude {
 	  @Override
 	public IMagnitude transformTo(IPhysicalUnit c) throws QuantityException {
 		try {
+			
+			if(c.getClass().equals(CompositeUnit.class)) {
+				IMagnitude m = new Magnitude(unit.transformTo(value, c), c);
+				return m;
+			}
 
 			// Caso1: mismo sistema metrico
 			if((this.unit).canTransformTo(c)){	
 				IMagnitude m  = new Magnitude((this.unit).transformTo(this.value, c), c);
 				return m;
 			}
+
 			
 			// Caso2: distintas quantities
 			else if (!unit.getQuantity().equals(c.getQuantity())){

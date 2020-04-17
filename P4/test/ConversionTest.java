@@ -3,6 +3,7 @@ package test;
 import magnitude.IMagnitude;
 import magnitude.Magnitude;
 import magnitude.exceptions.QuantityException;
+import metricSystems.MetricSystem;
 import metricSystems.imperial.length.ImperialLengthMetricSystem;
 import metricSystems.si.length.SiLengthMetricSystem;
 import metricSystems.si.length.converters.SiLength2ImperialConverter;
