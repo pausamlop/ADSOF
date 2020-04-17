@@ -1,5 +1,6 @@
 package metricSystems;
 
+import java.util.*;
 
 
 /**
@@ -9,14 +10,29 @@ package metricSystems;
  * @author Paula Samper paula.samper@estudiante.uam.es
  */
 public abstract class MetricSystem implements IMetricSystem {
-
-    private static IMetricSystemConverter converter;
+	
+	private static List<IMetricSystemConverter> converters = new ArrayList<IMetricSystemConverter>();
+    
+    
+    public static List<IMetricSystemConverter> getConverters (){ return converters; }
 
     @Override
-    public IMetricSystemConverter getConverter() { return (MetricSystemConverter)converter; }
+    public IMetricSystemConverter getConverter(IMetricSystem to) { 
+    	for (IMetricSystemConverter m: MetricSystem.getConverters()) {
+    		if (m.sourceSystem().equals(this) && m.targetSystem().equals(to))
+    			return m;
+    		
+    	}
+    	return null;
+    	
+    }
     
 
-    public static void registerConverter(IMetricSystemConverter to) { converter =  to; }
+    public static void registerConverter(IMetricSystemConverter to) {
+    	if (converters.contains(to)) return;
+        converters.add(to);
+        converters.add(to.reverse());
+    }
 
 
 

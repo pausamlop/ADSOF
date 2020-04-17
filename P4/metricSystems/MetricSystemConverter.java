@@ -4,6 +4,7 @@ import magnitude.IMagnitude;
 import magnitude.Magnitude;
 import magnitude.exceptions.QuantityException;
 import magnitude.exceptions.UnknownUnitException;
+import metricSystems.si.length.converters.SiLength2ImperialConverter;
 import units.IPhysicalUnit;
 
 /**
@@ -13,7 +14,8 @@ import units.IPhysicalUnit;
  * @author Paula Samper paula.samper@estudiante.uam.es
  */
 
-public abstract class MetricSystemConverter implements IMetricSystemConverter{
+public class MetricSystemConverter implements IMetricSystemConverter{
+	
     
     private IMetricSystem sourceSystem;
     private IMetricSystem targetSystem;
@@ -87,7 +89,26 @@ public abstract class MetricSystemConverter implements IMetricSystemConverter{
             return null;
         }
         
-    } 
+    }
+    
+    
+    /**
+     * Método que devuelve el conversor inverso al actual
+	 * 	 
+     *
+     * @return IMetricSystemConverter requerido
+     */
+    
+    @Override
+    public IMetricSystemConverter reverse() { 
+    	for (IMetricSystemConverter m: MetricSystem.getConverters()) {
+    		if (m.targetSystem().equals(this.sourceSystem()) && m.sourceSystem().equals(this.targetSystem()))
+    			return m;
+    		
+    	}
+		return new MetricSystemConverter(targetSystem(), sourceSystem(), 1/change);
+    	
+    }
     
 
 }

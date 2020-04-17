@@ -1,13 +1,12 @@
 package test;
 
-import units.CompositeUnit;
+import units.composite.*;
 
-import units.ICompositeUnit.Operator;
+
 import units.PhysicalUnit;
 import magnitude.IMagnitude;
 import magnitude.Magnitude;
 import magnitude.exceptions.QuantityException;
-import metricSystems.imperial.ImperialMetricSystem;
 import metricSystems.imperial.length.ImperialLengthMetricSystem;
 import metricSystems.si.length.SiLengthMetricSystem;
 import metricSystems.si.length.converters.SiLength2ImperialConverter;

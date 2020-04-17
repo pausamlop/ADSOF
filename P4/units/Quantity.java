@@ -1,5 +1,7 @@
 package units;
 
+import java.util.*;
+
 
 /**
  * Enumeracion de las distintas cantidades
@@ -41,5 +43,22 @@ public enum Quantity {
             return "T";
         }
 
-    };
+    },
+
+    COMPOSITE {
+       	/**
+         * Modificación del método toString para adecuarlo a la salida
+    	 * deseada
+    	 * 
+         * @return String deseado para imprimir por pantalla
+         */
+    	
+        @Override
+        public String toString() {
+            return "Composite";
+        }
+
+    }
+    
+    ;
 }

@@ -1,4 +1,6 @@
-package units;
+package units.composite;
+
+import units.IPhysicalUnit;
 
 public interface ICompositeUnit extends IPhysicalUnit{
 	Operator getOperator();

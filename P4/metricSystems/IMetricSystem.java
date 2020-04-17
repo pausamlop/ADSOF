@@ -15,5 +15,5 @@ public interface IMetricSystem {
         IPhysicalUnit base();
         Collection<IPhysicalUnit> units();
         // Added for convertible
-        IMetricSystemConverter getConverter();
+        IMetricSystemConverter getConverter(IMetricSystem to);
         }

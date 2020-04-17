@@ -87,9 +87,10 @@ public class Magnitude implements IMagnitude {
 	 * 
      * @param c IPhysicalUnit a la que se quiere realizar el cambio
      * @return IMagnitude una vez realizado el cambio
+	 * @throws UnknownUnitException 
      */
 
-	@Override
+	  @Override
 	public IMagnitude transformTo(IPhysicalUnit c) throws QuantityException {
 		try {
 
@@ -105,9 +106,9 @@ public class Magnitude implements IMagnitude {
 			}
 
 			// Caso3: misma quantity, pero distinto si, con converter
-			else if ((c.getMetricSystem().getConverter()) != null){
+			else if ((unit.getMetricSystem().getConverter(c.getMetricSystem())) != null){
 
-				MetricSystemConverter metric = (MetricSystemConverter) c.getMetricSystem().getConverter();
+				MetricSystemConverter metric = (MetricSystemConverter) unit.getMetricSystem().getConverter(c.getMetricSystem());
 				return ((MetricSystemConverter) metric).transformTo((IMagnitude)this,c);
 
 			// Caso4: misma quantity, pero distinto si, con converter
@@ -123,6 +124,8 @@ public class Magnitude implements IMagnitude {
 		}
 
 	}
+	
+  
 
 	 /**
      * Modificación del método toString para adecuarlo a la salida
