@@ -1,4 +1,4 @@
-
+package generics;
 
 public class Node<A> {
 	

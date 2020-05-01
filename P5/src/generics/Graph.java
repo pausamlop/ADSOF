@@ -1,4 +1,4 @@
-
+package generics;
 import java.util.*;
 
 public class Graph<A,B> implements Collection<A>{
