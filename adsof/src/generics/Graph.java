@@ -1,7 +1,7 @@
 package generics;
 import java.util.*;
 
-public class Graph<A,B> implements Collection<A>{
+public class Graph<A,B> implements Collection<Node<A>>{
 
     private Set<Node<A>> nodes = new HashSet<Node<A>> ();
     private List<Edge<B>> edges = new ArrayList<Edge<B>>();
@@ -38,18 +38,22 @@ public class Graph<A,B> implements Collection<A>{
 	
 	public void connect(Node<A> from, B valor, Node<A> to){
 		/* ver que estan en el mismo grafo*/
+
 		if (from.getGraph() == null) from.setGraph(this);
 		if (to.getGraph() == null)to.setGraph(this);
-
+		
+		if(from.getGraph().equals(to.getGraph()) == false);
+		
 		Edge<B> e = new Edge<B>(valor, from, to);
 		edges.add(e);
 		
 	}
+	
+	
+	
+	
+	/* Implementar interfaz coleccion */
 
-
-    
-
-	/* Collections */
 	@Override
 	public int size() {
         return nodes.size();
@@ -66,8 +70,8 @@ public class Graph<A,B> implements Collection<A>{
 	}
 
 	@Override
-	public Iterator<A> iterator() {
-		return (Iterator<A>) nodes.iterator();
+	public Iterator<Node<A>> iterator() {
+		return (Iterator<Node<A>>) nodes.iterator();
 	}
 
 	@Override
@@ -81,8 +85,8 @@ public class Graph<A,B> implements Collection<A>{
 	}
 
 	@Override
-	public boolean add(A e) {
-		return nodes.add((Node<A>)e);
+	public boolean add(Node<A> e) {
+		return nodes.add(e);
 	}
 
 	@Override
@@ -96,8 +100,8 @@ public class Graph<A,B> implements Collection<A>{
 	}
 
 	@Override
-	public boolean addAll(Collection<? extends A> c) {
-		return nodes.addAll((Collection<? extends Node<A>>) c);
+	public boolean addAll(Collection<? extends Node<A>> c) {
+		return nodes.addAll(c);
 	}
 
 	@Override
@@ -113,5 +117,20 @@ public class Graph<A,B> implements Collection<A>{
 	@Override
 	public void clear() {
         nodes.clear();
+	}
+	
+	
+	@Override
+	public String toString() {
+		String buf = "Nodes:\n";
 		
-	}}
+		for (Node<A> n: nodes) buf += (n + "\n");
+		buf += "Edges:\n";
+		for (Edge<B> e: edges) buf += (e + "\n");
+		return buf;
+		
+	}
+
+
+    
+}

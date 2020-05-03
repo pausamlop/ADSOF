@@ -1,5 +1,6 @@
 package generics;
 
+
 public class Edge<B> {
     
     private B data;
@@ -37,6 +38,14 @@ public class Edge<B> {
     public void setTo(Node<?> to) {
         this.to = to;
     }
+    
+    
+    @Override
+    public String toString() {
+    	return "( " + from.getId() + " --" + data + "--> " + to.getId() + " )";
+    }
+    
+    
 
 
 }

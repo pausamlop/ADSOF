@@ -2,14 +2,13 @@ package generics;
 
 import java.util.*;
 
-import generics.Graph;
 
 public class Node<A> {
 	
-	private static int ultimoId = 0;
+	private static int ultimoId = -1;
 	private final int id;
 	private A data;
-	private Graph g;
+	private Graph<A,?> g;
 
 	/**
 	 * Contructor del nodo
@@ -53,7 +52,7 @@ public class Node<A> {
 	 * Imprime los datos de un nodo.
 	 */
 	@Override
-	public String toString() {	return data.toString(); }
+	public String toString() {	return id + " [" + data + "]" ;}
 
 	/**
 	 * Override del metodo equals
@@ -69,37 +68,71 @@ public class Node<A> {
 
 	public boolean isConnectedTo(Node<A> n) {
 		if (g.contains(n)){
+			
+			List<Node<A>> list = neighbours();
+			if(list.contains(n)) return true;
 
-			for (Edge<this.getEdgeValues(n).getClass()> e: g.getEdges()){
-				if ((e.getFrom().equals(this) && e.getTo().equals(n)) || (e.getFrom().equals(n) && e.getTo().equals(this)))
-					return true;
-			} 
 		}
 		return false;
 	} 
 	
+	public boolean isConnectedTo(A e) {
+	
+		List<Node<A>> list = neighbours();
+		
+		for (Node<A> o: list) {
+			if (o.getDatos().equals(e)) return true;
+		}
+
+		return false;
+	} 
+	
+	
+	
+	@SuppressWarnings("unchecked")
 	public ArrayList<Node<A>> neighbours(){
-		List<Node<?>> output = new ArrayList<Node<?>>();
+		ArrayList<Node<A>> output = new ArrayList<Node<A>>();
 
-		for (Edge<?> e: g.getEdges()){
+		for (Object o: g.getEdges()){
 
-			if (e.getFrom().equals(this)) output.add(e.getTo());
-			else if (e.getTo().equals(this)) output.add(e.getFrom());
+			if (((Edge<?>)o).getFrom().equals(this)) {
+				
+				if (!output.contains(((Edge<?>)o).getTo()))
+						output.add((Node<A>) ((Edge<?>)o).getTo());
+				
+			}
+			
+			else if (((Edge<?>)o).getTo().equals(this)) {
+				
+				if (!output.contains(((Edge<?>)o).getFrom()))
+						output.add((Node<A>) ((Edge<?>)o).getFrom());
+				
+			}
+
 		} 
 		return output;
 		
 	}
-	public ? getEdgeValues(Node<A> n) {
+	
+	
+	
+	public Set<? super Object> getEdgeValues(Node<A> n) {
+		
+		Set<? super Object> s = new LinkedHashSet<>();
+		
 		if(isConnectedTo(n)) {
-			for(Edge<?> e : g.getEdges()) {
-				if(e.getFrom().equals(this) && e.getTo().equals(n)) {
-					return e.getData();
-				// } else if(e.getFrom().equals(n) && e.getTo().equals(this)) {
-				// 	return e.getData();
-				// }
+			
+			for(Object o: g.getEdges()) {
+				if(((Edge<?>)o).getFrom().equals(this) && ((Edge<?>)o).getTo().equals(n)) {
+					s.add( ((Edge<?>)o).getData() );
+				}
 			}
 		}
-	}
+		
+       return s;
 	
-}
+	}
+
+
+
 }
