@@ -66,7 +66,7 @@ public class BlackBoxComparator<A,B> implements Comparator<ConstrainedGraph<A,B>
 	 * @param c tipo de criterio a añadir
 	 * @param lambda predicado que contiene la expresion lambda a añadir
  	*/
-
+	public BlackBoxComparator<A,B> addCriteria(Criteria c, Predicate<Node<A>> lambda){
         if (!properties.keySet().contains(c)){
         	
             ArrayList<Predicate<Node<A>>> lista = new ArrayList<>();
