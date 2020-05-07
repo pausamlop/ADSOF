@@ -31,7 +31,8 @@ public class Tester1 {
         System.out.println(nodos);
 
         System.out.println("s0 conectado con ‘s1’: "+ n1.isConnectedTo("s1")); 
-        System.out.println("s0 conectado con s1: "+ n1.isConnectedTo(n2)); System.out.println("vecinos de s0: "+n1.neighbours());
+        System.out.println("s0 conectado con s1: "+ n1.isConnectedTo(n2)); 
+        System.out.println("vecinos de s0: "+n1.neighbours());
         System.out.println("valores de los enlaces desde s0 a s1: "+n1.getEdgeValues(n2));
 
     }

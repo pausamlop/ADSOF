@@ -1,6 +1,11 @@
 package generics;
 
-
+/**
+ * Esta clase modela las aristas de los grafos
+ * 
+ * @author Miguel Escribano miguel.escribanoo@estudiante.uam.es
+ * @author Paula Samper paula.samper@estudiante.uam.es
+ */
 public class Edge<B> {
     
     private B data;
@@ -39,7 +44,9 @@ public class Edge<B> {
         this.to = to;
     }
     
-    
+    /**
+	 * Imprime los datos de una arista
+	 */
     @Override
     public String toString() {
     	return "( " + from.getId() + " --" + data + "--> " + to.getId() + " )";

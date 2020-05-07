@@ -1,9 +1,16 @@
 package generics;
 import java.util.*;
 
+
+/**
+ * Esta clase modela los grafos
+ * 
+ * @author Miguel Escribano miguel.escribanoo@estudiante.uam.es
+ * @author Paula Samper paula.samper@estudiante.uam.es
+ */
 public class Graph<A,B> implements Collection<Node<A>>{
 
-    private Set<Node<A>> nodes = new HashSet<Node<A>> ();
+    private Set<Node<A>> nodes = new LinkedHashSet<Node<A>> ();
     private List<Edge<B>> edges = new ArrayList<Edge<B>>();
 
 
@@ -42,7 +49,8 @@ public class Graph<A,B> implements Collection<Node<A>>{
 		if (from.getGraph() == null) from.setGraph(this);
 		if (to.getGraph() == null)to.setGraph(this);
 		
-		if(from.getGraph().equals(to.getGraph()) == false);
+		
+		if(from.getGraph().equals(to.getGraph()) == false) return ;
 		
 		Edge<B> e = new Edge<B>(valor, from, to);
 		edges.add(e);
@@ -54,6 +62,10 @@ public class Graph<A,B> implements Collection<Node<A>>{
 	
 	/* Implementar interfaz coleccion */
 
+	/**
+ 	* Esta clase modela los ConstrainedGraph
+ 	* 
+	 */
 	@Override
 	public int size() {
         return nodes.size();
