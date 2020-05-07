@@ -3,6 +3,12 @@ package generics;
 import java.util.*;
 import java.util.stream.Collectors;
 
+/**
+ * Esta clase modela los conjuntos de reglas
+ * 
+ * @author Miguel Escribano miguel.escribanoo@estudiante.uam.es
+ * @author Paula Samper paula.samper@estudiante.uam.es
+ */
 public class RuleSet<T> {
 
     private Set<Rule<T>> rules = new LinkedHashSet<>();
@@ -16,6 +22,13 @@ public class RuleSet<T> {
     	return str; 
     }
     
+    /**
+     * Añade una regla al conjunto de reglas, que lo devuelve para poder seguir concatenando
+     * en el codigo con expresiones lambda
+     * 
+     * @param rule Rule<T> a añadir al conjunto
+     * @return RuleSet<T>
+     */
     public RuleSet<T>  add(Rule<T> rule){
         rules.add(rule);
         return this;
@@ -26,6 +39,10 @@ public class RuleSet<T> {
         this.str = str;
     }
 
+    /**
+     * Metodo encargado de ejecutar el conjunto de reglas
+     *
+     */
     public void process(){
 
         for (Rule<T> r: rules) {

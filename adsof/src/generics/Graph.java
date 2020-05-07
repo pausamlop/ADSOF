@@ -43,6 +43,12 @@ public class Graph<A,B> implements Collection<Node<A>>{
 
 	/* METODOS DE GRAFOS*/
 	
+	/**
+     * Conecta dos nodos pasados como argumento 
+	 * @param from, Node origen de la conexion
+	 * @param to, Node destino de la conexion
+     *
+     */
 	public void connect(Node<A> from, B valor, Node<A> to){
 		/* ver que estan en el mismo grafo*/
 
@@ -60,32 +66,55 @@ public class Graph<A,B> implements Collection<Node<A>>{
 	
 	
 	
-	/* Implementar interfaz coleccion */
+	/* Implementacion interfaz coleccion */
 
 	/**
- 	* Esta clase modela los ConstrainedGraph
- 	* 
+	 * Devuelve el tamaño del grafo
+	 * @return int con el tamaño
+ 	 * 
 	 */
 	@Override
 	public int size() {
         return nodes.size();
 	}
 
+
+	/**
+	 * Comprueba si el grafo esta vacio
+	 * @return true si esta vacio, false en caso contrario
+ 	 * 
+	 */
 	@Override
 	public boolean isEmpty() {
         return nodes.isEmpty();
 	}
 
+	/**
+	 * Comprueba si el grafo contiene un objeto pasado como argumento
+	 * @param o objeto a comprobar
+	 * @return true si se cuenta con dicho objeto, false en caso contrario
+ 	 * 
+	 */
 	@Override
 	public boolean contains(Object o) {
 		return nodes.contains(o);
 	}
 
+	/**
+	 * Devuelve un iterador
+	 * @return iterator para recorrer los nodos del grafo
+ 	 * 
+	 */
 	@Override
 	public Iterator<Node<A>> iterator() {
 		return (Iterator<Node<A>>) nodes.iterator();
 	}
 
+	/**
+	 * Devuelve un array con los nodos del grafo
+	 * @return array con los nodos del grafo
+ 	 * 
+	 */
 	@Override
 	public Object[] toArray() {
 		return nodes.toArray();
@@ -96,26 +125,51 @@ public class Graph<A,B> implements Collection<Node<A>>{
         return nodes.toArray(a);
 	}
 
+	/**
+	 * Añade un nodo al grafo
+	 * @return boolean con el resultado
+ 	 * 
+	 */
 	@Override
 	public boolean add(Node<A> e) {
 		return nodes.add(e);
 	}
 
+	/**
+	 * Elimina un objeto del grafo
+	 * @return boolean con el resultado
+ 	 * 
+	 */
 	@Override
 	public boolean remove(Object o) {
         return nodes.remove(o);
 	}
 
+	/**
+	 * Comprueba si los elementos de una coleccion estan contenidos en el grafo
+	 * @return true en caso afirmartivo, false en caso negativo
+ 	 * 
+	 */
 	@Override
 	public boolean containsAll(Collection<?> c) {
         return nodes.containsAll(c);
 	}
 
+	/**
+	 * Añade los elementos de una coleccion a un grafo
+	 *@return boolean con el resultado de la operacion
+ 	 * 
+	 */
 	@Override
 	public boolean addAll(Collection<? extends Node<A>> c) {
 		return nodes.addAll(c);
 	}
 
+	/**
+	 * Elimina del grafo los elementos de una coleccion
+	 * @return boolean con el resultado de la operacion
+ 	 * 
+	 */
 	@Override
 	public boolean removeAll(Collection<?> c) {
         return nodes.removeAll(c);
@@ -126,12 +180,20 @@ public class Graph<A,B> implements Collection<Node<A>>{
         return nodes.retainAll(c);
 	}
 
+	/**
+	 * Vacia la lista de nodos del grafo
+	 * @return int con el tamaño
+ 	 * 
+	 */
 	@Override
 	public void clear() {
         nodes.clear();
 	}
 	
-	
+	/**
+	 * Modificacion del metodo toString para adaparlo a la salida requerida
+ 	 * 
+	 */
 	@Override
 	public String toString() {
 		String buf = "Nodes:\n";

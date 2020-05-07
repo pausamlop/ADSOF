@@ -12,6 +12,12 @@ import java.util.Set;
  */
 public class AsLongAsPossible<T> implements IStrategy<T>{
 
+	/**
+     * Establece el comportamiento 
+	 * @param set, conjunto de reglas
+	 * @param collection coleccion 
+     *
+     */
 	@Override
 	public void behaviour(Set<Rule<T>> set, Collection<T> collection) {
 		for (Rule<T> r: set) {

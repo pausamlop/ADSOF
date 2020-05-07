@@ -3,6 +3,12 @@ package test;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * Clase Producto, utilizada para las pruebas de los tester
+ * 
+ * @author Miguel Escribano miguel.escribanoo@estudiante.uam.es
+ * @author Paula Samper paula.samper@estudiante.uam.es
+ */
 public class Producto {
     private double precio;
     private Date caducidad; 

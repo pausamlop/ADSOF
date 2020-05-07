@@ -2,7 +2,12 @@ package generics;
 
 import java.util.*;
 
-
+/**
+ * Esta clase modela los nodos
+ * 
+ * @author Miguel Escribano miguel.escribanoo@estudiante.uam.es
+ * @author Paula Samper paula.samper@estudiante.uam.es
+ */
 public class Node<A> {
 	
 	private static int ultimoId = -1;
@@ -65,19 +70,17 @@ public class Node<A> {
 	 */
 	@Override
 	public boolean equals(Object obj) {
-	/**
-	 * Determina si un nodo esta conectado a otro
-	 * 
-	 * @param n Nodo con el cual queremos comprobar la conexion
-	 * 
-	 * @return true si esta conectado, false si no es asi
-	 */		if (this.id == ((Node<?>) obj).getId()) 
+	if (this.id == ((Node<?>) obj).getId()) 
 			return true;
 		return false;
 	} 
 
 
-
+	/**
+     * Determina si un nodo esta conectado con otro 
+	 * @param n Node a comprobar
+	 * @param boolean con el resultado, true o false
+     */
 	public boolean isConnectedTo(Node<A> n) {
 		
 		if (g == null) return false;
@@ -90,20 +93,19 @@ public class Node<A> {
 					return true;
 
 				}
-	
+			
+			}
+
+		}
+		return false;
+	} 
 	/**
 	 * Determina si un nodo esta conectado a otro
 	 * 
 	 * @param e value del nodo a comprobar
 	 * 
 	 * @return true si esta conectado, false si no es asi
-	 */			
-			}
-
-		}
-		return false;
-	} 
-	
+	 */	
 	public boolean isConnectedTo(A e) {
 	
 		if (g == null) return false;
@@ -114,17 +116,17 @@ public class Node<A> {
 				return true;
 
 			}
-	/**
-	 * Devuelve una lista con los nodos "vecinos" con los que esta conectado
-	 * 
-	 * @return ArrayList de Node<A>
-	 */	}
+		}
 
 		return false;
 	} 
 	
 	
-	
+	/**
+	 * Devuelve una lista con los nodos "vecinos" con los que esta conectado
+	 * 
+	 * @return ArrayList de Node<A>
+	 */
 	@SuppressWarnings("unchecked")
 	public ArrayList<Node<A>> neighbours(){
 		
@@ -148,7 +150,12 @@ public class Node<A> {
 	}
 	
 	
-	
+	/**
+	 * Devuelve una lista con los valores de las aristas de los nodos con los que esta conectado
+	 * @param n Node a comprobar
+	 * 
+	 * @return Lista de values requerida
+	 */
 	public List<? super Object> getEdgeValues(Node<A> n) {
 		
 		if (g == null) return null;

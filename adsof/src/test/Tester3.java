@@ -6,7 +6,12 @@ import java.util.*;
 import java.util.concurrent.TimeUnit;
 
 import generics.*;
-
+/**
+ * Tester apartado 3
+ * 
+ * @author Miguel Escribano miguel.escribanoo@estudiante.uam.es
+ * @author Paula Samper paula.samper@estudiante.uam.es
+ */
 public class Tester3 {
 	
 	
